@@ -50,11 +50,12 @@ Para a determinação da quantidade de componentes conexos, antes é necessário
   - Assim que encontrar o primeiro pixel de intensidade 1 ainda não visitado (igual a 0 na mesma coordenada em R)
     - inserir (x,y) na fila
       - na coordenada (x,y) da imagem R, atribuir o rótulo atual
-Enquanto a fila não estiver vazia
-(x,y) ← remover da fila
-inserir na fila as coordenadas dos quatro vizinhos que estejam dentro do domínio da imagem (não pode ter coordenada negativa ou superar o número de linhas ou de colunas), com intensidade 1 (em E) e ainda não tenha sido visitado (igual a 0 em R)
-na coordenada de cada vizinho selecionado, na imagem R, atribuir o rótulo atual
-incrementar o rótulo
+  - Enquanto a fila não estiver vazia
+    - (x,y) ← remover da fila
+    - inserir na fila as coordenadas dos quatro vizinhos que estejam dentro do domínio da imagem (não pode ter coordenada negativa ou superar o número de linhas ou de colunas), com intensidade 1 (em E) e ainda não tenha sido visitado (igual a 0 em R)
+      - na coordenada de cada vizinho selecionado, na imagem R, atribuir o rótulo atual
+- incrementar o rótulo
+
 O conteúdo final da matriz R corresponde ao resultado da rotulação. A quantidade de componentes conexos, que é a resposta do segundo problema, é igual ao último e maior rótulo atribuído.
 
 # Entrega
@@ -62,6 +63,6 @@ O conteúdo final da matriz R corresponde ao resultado da rotulação. A quantid
 Individual ou em dupla
 Composição da nota:
 Nota automática do VPL(*): 70%
-(*) Caso algum caso de teste não tenha sido bem sucedido, o aluno opcionalmente poderá defender sua solução no dia reservado à apresentação do Trabalho de Implementação I
-Relatório em PDF (utilize este link para a submissão) com todas as explicações pertinentes e documentação do código (**): 30%
-(**) Sugere-se a escrita no próprio código usando a notação Doxygen com a geração automática de LaTeX/PDF
+Relatório em PDF (utilize este link para a submissão) com todas as explicações pertinentes e documentação do código (): 30%
+(i) Caso algum caso de teste não tenha sido bem sucedido, o aluno opcionalmente poderá defender sua solução no dia reservado à apresentação do Trabalho de Implementação I.
+(ii) Sugere-se a escrita no próprio código usando a notação Doxygen com a geração automática de LaTeX/PDF.
