@@ -28,9 +28,8 @@ Para esta parte, pede-se exclusivamente a verificação de aninhamento e fechame
 
 # Segundo problema: contagem de componentes conexos em imagens binárias representadas em arquivo XML
 
-Cada XML, contém imagens binárias, com altura e largura, definidas respectivamente pelas marcações **\<height>** e **\
-<width>**, e sequência dos pixels (com valores binários, de intensidade **0** para preto ou **1** para branco), em modo texto 
-(embora fosse melhor gravar 1 byte a cada 8 bits, optou-se pelo modo texto por simplicidade), na marcação **\<data>**. Para 
+Cada XML, contém imagens binárias, com altura e largura, definidas respectivamente pelas marcações **\<height>** e **\<width>**, e sequência dos pixels (com valores binários, de intensidade **0** para preto ou **1** para branco), em modo texto 
+(embora fosse melhor gravar **1 byte** a cada **8 bits**, optou-se pelo modo texto por simplicidade), na marcação **\<data>**. Para 
 cada uma dessas imagens, pretende-se calcular o número de componentes conexos usando **vizinhança-4**. Para isso, seguem 
 algumas definições importantes:
 
@@ -45,19 +44,19 @@ sendo **i=1,2,...,n-1**.
 - Um **componente conexo** é um conjunto maximal (não há outro maior que o contenha) **C** de pixels, no qual quaisquer dois 
 pixels selecionados deste conjunto **C** são **conexos**.
 
-Para a determinação da quantidade de componentes conexos, antes é necessário atribuir um rótulo inteiro e crescente (1, 2, ...) para cada pixel de cada componente conexo. Conforme apresentado em aula, segue o algoritmo de rotulação (labeling) usando uma fila (**FIFO**):
+Para a determinação da quantidade de **componentes conexos**, antes é necessário atribuir um **rótulo** inteiro e crescente **(1, 2, ...)** para cada pixel de cada **componente conexo**. Conforme apresentado em aula, segue o algoritmo de rotulação (**labeling**) usando uma fila (**FIFO**):
 
-- Inicializar rótulo com 1
-- Criar uma matriz R de zeros com o mesmo tamanho da matriz de entrada E lida
-- Varrer a matriz de entrada E
-  - Assim que encontrar o primeiro pixel de intensidade 1 ainda não visitado (igual a 0 na mesma coordenada em R)
-    - inserir (x,y) na fila
-      - na coordenada (x,y) da imagem R, atribuir o rótulo atual
-  - Enquanto a fila não estiver vazia
-    - (x,y) ← remover da fila
-    - inserir na fila as coordenadas dos quatro vizinhos que estejam dentro do domínio da imagem (não pode ter coordenada negativa ou superar o número de linhas ou de colunas), com intensidade 1 (em E) e ainda não tenha sido visitado (igual a 0 em R)
-      - na coordenada de cada vizinho selecionado, na imagem R, atribuir o rótulo atual
-- incrementar o rótulo
+- Inicializar **rótulo** com **1**.
+- Criar uma matriz **R** de zeros com o mesmo tamanho da matriz de entrada **E** lida.
+- Varrer a matriz de entrada **E**:
+  - Assim que encontrar o primeiro pixel de intensidade **1** ainda **não** visitado (igual a **0** na mesma coordenada em **R**):
+    - inserir **(x,y)** na fila:
+      - na coordenada **(x,y)** da imagem **R**, atribuir o **rótulo atual**.
+  - Enquanto a **fila** não estiver vazia:
+    - **(x,y)** ← remover da **fila**
+    - inserir na fila as coordenadas dos quatro vizinhos que estejam dentro do domínio da imagem (não pode ter coordenada negativa ou superar o número de linhas ou de colunas), com intensidade **1** (em **E**) e ainda não tenha sido visitado (igual a **0** em **R**).
+      - na coordenada de cada vizinho selecionado, na imagem **R**, atribuir o **rótulo atual**.
+- incrementar o **rótulo**.
 
-O conteúdo final da matriz R corresponde ao resultado da rotulação. A quantidade de componentes conexos, que é a resposta do segundo problema, é igual ao último e maior rótulo atribuído.
+O conteúdo final da matriz **R** corresponde ao resultado da **rotulação**. A quantidade de **componentes conexos**, que é a resposta do segundo problema, é igual ao último e **maior rótulo** atribuído.
 
