@@ -18,7 +18,7 @@ De modo a exemplificar uma entrada para o seu programa, segue o arquivo XML util
 
 # Primeiro problema: validação de arquivo XML
 
-Para esta parte, pede-se exclusivamente a verificação de aninhamento e fechamento das marcações (tags) no arquivo **XML** (qualquer outra fonte de erro pode ser ignorada). Um identificador (por exemplo: **img**) constitui uma marcação entre os caracteres **<** e **>**, podendo ser de abertura (por exemplo: **<img>**) ou de fechamento com uma **/** antes do identificador (por exemplo: **\</img>**). Como apresentando em sala de aula, o algoritmo para resolver este problema é baseado em pilha (**LIFO**):
+Para esta parte, pede-se exclusivamente a verificação de aninhamento e fechamento das marcações (**tags**) no arquivo **XML** (qualquer outra fonte de erro pode ser ignorada). Um identificador (por exemplo: **img**) constitui uma marcação entre os caracteres **<** e **>**, podendo ser de abertura (por exemplo: **<img>**) ou de fechamento com uma **/** antes do identificador (por exemplo: **\</img>**). Como apresentando em sala de aula, o algoritmo para resolver este problema é baseado em pilha (**LIFO**):
 
 - Ao encontrar uma marcação de abertura, empilha o identificador.
 - Ao encontrar uma marcação de fechamento, verifica se o topo da pilha tem o mesmo identificador e desempilha. Aqui duas situações de erro podem ocorrer:
@@ -28,14 +28,14 @@ Para esta parte, pede-se exclusivamente a verificação de aninhamento e fechame
 
 # Segundo problema: contagem de componentes conexos em imagens binárias representadas em arquivo XML
 
-Cada XML, contém imagens binárias, com altura e largura, definidas respectivamente pelas marcações <height> e <width>, e sequência dos pixels (com valores binários, de intensidade 0 para preto ou 1 para branco), em modo texto (embora fosse melhor gravar 1 byte a cada 8 bits, optou-se pelo modo texto por simplicidade), na marcação **<data>**. Para cada uma dessas imagens, pretende-se calcular o número de componentes conexos usando **vizinhança-4**. Para isso, seguem algumas definições importantes:
+Cada XML, contém imagens binárias, com altura e largura, definidas respectivamente pelas marcações **\<height>** e **\<width>**, e sequência dos pixels (com valores binários, de intensidade 0 para preto ou 1 para branco), em modo texto (embora fosse melhor gravar 1 byte a cada 8 bits, optou-se pelo modo texto por simplicidade), na marcação **\<data>**. Para cada uma dessas imagens, pretende-se calcular o número de componentes conexos usando **vizinhança-4**. Para isso, seguem algumas definições importantes:
 
 - A **zinhança-4** de um pixel na linha **x** e coluna **y**, ou seja, na coordenada **(x,y)**, é um conjunto de pixels adjacentes nas coordenadas:
 - **(x-1, y)**
 - **(x+1, y)**
 - **(x, y-1)**
 - **(x, y+1)**
-- **Um caminho** entre um um pixel p1 e outro pn é em um sequência de pixels distintos **<p1,p2,...,pn>**, de modo que **p<sub>i</sub>** é vizinho-4 de **pi+1**, sendo **i=1,2,...,n-1**.
+- **Um caminho** entre um um pixel p1 e outro pn é em um sequência de pixels distintos **<p<sub>1</sub>,p<sub>2</sub>,...,p<sub>n</sub>>**, de modo que **p<sub>i</sub>** é vizinho-4 de **pi+1**, sendo **i=1,2,...,n-1**.
 - Um pixel **p** é **conexo** a um pixel q se existir um caminho de **p** a **q** (no contexto deste trabalho, só há interesse em pixels com intensidade 1, ou seja, brancos)
 - Um componente conexo é um conjunto maximal (não há outro maior que o contenha) C de pixels, no qual quaisquer dois pixels selecionados deste conjunto C são conexos.
 
