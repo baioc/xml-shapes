@@ -17,10 +17,9 @@ De modo a exemplificar uma entrada para o seu programa, segue o arquivo XML util
 - [dataset05.xml](https://moodle.ufsc.br/pluginfile.php/2753881/mod_resource/content/2/dataset05.xml)
 - [dataset06.xml](https://moodle.ufsc.br/pluginfile.php/2753881/mod_resource/content/2/dataset06.xml)
 
-dicas sobre leitura e escrita com arquivos em C++
-http://www.cplusplus.com/doc/tutorial/files/
-para a criação e concatenação de palavras/caracteres, sugere-se o uso da classe string:
-http://www.cplusplus.com/reference/string/string/
+- Dicas sobre leitura e escrita com arquivos em C++: http://www.cplusplus.com/doc/tutorial/files/
+- Para a criação e concatenação de palavras/caracteres, sugere-se o uso da classe string: http://www.cplusplus.com/reference/string/string/
+
 # Primeiro problema: validação de arquivo XML
 
 Para esta parte, pede-se exclusivamente a verificação de aninhamento e fechamento das marcações (tags) no arquivo XML (qualquer outra fonte de erro pode ser ignorada). Um identificador (por exemplo: img) constitui uma marcação entre os caracteres < e >, podendo ser de abertura (por exemplo: <img>) ou de fechamento com uma / antes do identificador (por exemplo: </img>). Como apresentando em sala de aula, o algoritmo para resolver este problema é baseado em pilha (LIFO):
