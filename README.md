@@ -39,8 +39,7 @@ algumas definições importantes:
 - **(x+1, y)**
 - **(x, y-1)**
 - **(x, y+1)**
-- **Um caminho** entre um um pixel p1 e outro pn é em um sequência de pixels distintos **
-<p<sub>1</sub>,p<sub>2</sub>,...,p<sub>n</sub>>**, de modo que **p<sub>i</sub>** é **vizinho-4** de **p<sub>i+1</sub>**, 
+- **Um caminho** entre um um pixel p1 e outro pn é em um sequência de pixels distintos **<p<sub>1</sub>,p<sub>2</sub>,...,p<sub>n</sub>>**, de modo que **p<sub>i</sub>** é **vizinho-4** de **p<sub>i+1</sub>**, 
 sendo **i=1,2,...,n-1**.
 - Um pixel **p** é **conexo** a um pixel q se existir um caminho de **p** a **q** (no contexto deste trabalho, só há interesse em pixels com intensidade **1**, ou seja, **brancos**)
 - Um **componente conexo** é um conjunto maximal (não há outro maior que o contenha) **C** de pixels, no qual quaisquer dois 
