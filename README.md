@@ -23,11 +23,12 @@ De modo a exemplificar uma entrada para o seu programa, segue o arquivo XML util
 
 Para esta parte, pede-se exclusivamente a verificação de aninhamento e fechamento das marcações (tags) no arquivo XML (qualquer outra fonte de erro pode ser ignorada). Um identificador (por exemplo: img) constitui uma marcação entre os caracteres < e >, podendo ser de abertura (por exemplo: <img>) ou de fechamento com uma / antes do identificador (por exemplo: </img>). Como apresentando em sala de aula, o algoritmo para resolver este problema é baseado em pilha (LIFO):
 
-Ao encontrar uma marcação de abertura, empilha o identificador
-Ao encontrar uma marcação de fechamento, verifica se o topo da pilha tem o mesmo identificador e desempilha. Aqui duas situações de erro podem ocorrer:
-Ao consultar o topo, o identificador é diferente (ou seja, uma marcação aberta deveria ter sido fechada antes)
-Ao consultar o topo, a pilha encontra-se vazia (ou seja, uma marcação é fechada sem que tenha sido aberta antes)
-Ao finalizar a análise (parser) do arquivo, é necessário que a pilha esteja vazia. Caso não esteja, mais uma situação de erro ocorre, ou seja, há marcação sem fechamento
+- Ao encontrar uma marcação de abertura, empilha o identificador.
+- Ao encontrar uma marcação de fechamento, verifica se o topo da pilha tem o mesmo identificador e desempilha. Aqui duas situações de erro podem ocorrer:
+  - Ao consultar o topo, o identificador é diferente (ou seja, uma marcação aberta deveria ter sido fechada antes).
+  - Ao consultar o topo, a pilha encontra-se vazia (ou seja, uma marcação é fechada sem que tenha sido aberta antes).
+- Ao finalizar a análise (parser) do arquivo, é necessário que a pilha esteja vazia. Caso não esteja, mais uma situação de erro ocorre, ou seja, há marcação sem fechamento.
+
 # Segundo problema: contagem de componentes conexos em imagens binárias representadas em arquivo XML
 
 Cada XML, contém imagens binárias, com altura e largura, definidas respectivamente pelas marcações <height> e <width>, e sequência dos pixels (com valores binários, de intensidade 0 para preto ou 1 para branco), em modo texto (embora fosse melhor gravar 1 byte a cada 8 bits, optou-se pelo modo texto por simplicidade), na marcação <data>. Para cada uma dessas imagens, pretende-se calcular o número de componentes conexos usando vizinhança-4. Para isso, seguem algumas definições importantes:
