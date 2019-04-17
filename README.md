@@ -10,10 +10,13 @@ avaliados no VPL.
 De modo a exemplificar uma entrada para o seu programa, segue o arquivo XML utilizado no primeiro teste:
 
 - [dataset01.xml](https://moodle.ufsc.br/pluginfile.php/2735418/mod_resource/content/1/dataset01.xml)
-visualização ampliada das imagens contidas no mesmo:
+  -visualização ampliada das imagens contidas no mesmo:
+- [dataset02.xml](https://moodle.ufsc.br/pluginfile.php/2753879/mod_resource/content/2/dataset02.xml)
+- [dataset03.xml](https://moodle.ufsc.br/pluginfile.php/2753881/mod_resource/content/2/dataset03.xml)
+- [dataset04.xml](https://moodle.ufsc.br/pluginfile.php/2753881/mod_resource/content/2/dataset04.xml)
+- [dataset05.xml](https://moodle.ufsc.br/pluginfile.php/2753881/mod_resource/content/2/dataset05.xml)
+- [dataset06.xml](https://moodle.ufsc.br/pluginfile.php/2753881/mod_resource/content/2/dataset06.xml)
 
-
-dataset02.xml, dataset03.xml, dataset04.xml, dataset05.xml, dataset06.xml
 dicas sobre leitura e escrita com arquivos em C++
 http://www.cplusplus.com/doc/tutorial/files/
 para a criação e concatenação de palavras/caracteres, sugere-se o uso da classe string:
