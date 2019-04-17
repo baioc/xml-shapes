@@ -35,8 +35,8 @@ Cada XML, contém imagens binárias, com altura e largura, definidas respectivam
 - (x+1, y)
 - (x, y-1)
 - (x, y+1)
-- Um caminho entre um um pixel p1 e outro pn é em um sequência de pixels distintos <p1,p2,...,pn>, de modo que pi é vizinho-4 de pi+1., sendo i=1,2,...,n-1.
-- Um pixel p é conexo a um pixel q se existir um caminho de p a q (no contexto deste trabalho, só há interesse em pixels com intensidade 1, ou seja, brancos)
+- **Um caminho** entre um um pixel p1 e outro pn é em um sequência de pixels distintos <p1,p2,...,pn>, de modo que pi é vizinho-4 de pi+1., sendo i=1,2,...,n-1.
+- Um pixel **p** é **conexo** a um pixel q se existir um caminho de p a q (no contexto deste trabalho, só há interesse em pixels com intensidade 1, ou seja, brancos)
 - Um componente conexo é um conjunto maximal (não há outro maior que o contenha) C de pixels, no qual quaisquer dois pixels selecionados deste conjunto C são conexos.
 
 Para a determinação da quantidade de componentes conexos, antes é necessário atribuir um rótulo inteiro e crescente (1, 2, ...) para cada pixel de cada componente conexo. Conforme apresentado em aula, segue o algoritmo de rotulação (labeling) usando uma fila (FIFO):
