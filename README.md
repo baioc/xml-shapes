@@ -55,11 +55,3 @@ Para a determinação da quantidade de componentes conexos, antes é necessário
 
 O conteúdo final da matriz R corresponde ao resultado da rotulação. A quantidade de componentes conexos, que é a resposta do segundo problema, é igual ao último e maior rótulo atribuído.
 
-# Entrega
-
-Individual ou em dupla
-Composição da nota:
-Nota automática do VPL(*): 70%
-Relatório em PDF (utilize este link para a submissão) com todas as explicações pertinentes e documentação do código (): 30%
-(i) Caso algum caso de teste não tenha sido bem sucedido, o aluno opcionalmente poderá defender sua solução no dia reservado à apresentação do Trabalho de Implementação I.
-(ii) Sugere-se a escrita no próprio código usando a notação Doxygen com a geração automática de LaTeX/PDF.
