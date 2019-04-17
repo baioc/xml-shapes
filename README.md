@@ -1,13 +1,13 @@
 # Objetivo
 
-Este trabalho consiste na utilização de estruturas lineares, vistas até o momento no curso, e aplicação de conceitos de pilha
-e/ou fila para o processamento de arquivos XML contendo imagens binárias. A implementação deverá resolver dois problemas
-(listados a seguir), e os resultados deverão ser formatados em saída padrão de tela de modo que possam ser automaticamente 
-avaliados no VPL.
+Este trabalho consiste na utilização de **estruturas lineares**, vistas até o momento no curso, e aplicação de conceitos de 
+**pilha** e/ou **fila** para o processamento de arquivos **XML** contendo **imagens binárias**. A implementação deverá 
+resolver dois problemas (listados a seguir), e os resultados deverão ser formatados em saída padrão de tela de modo que 
+possam ser automaticamente avaliados no VPL.
 
 # Materiais
 
-De modo a exemplificar uma entrada para o seu programa, segue o arquivo XML utilizado no primeiro teste:
+De modo a exemplificar uma entrada para o seu programa, segue o arquivo **XML** utilizado no primeiro teste:
 
 - [dataset01.xml](https://moodle.ufsc.br/pluginfile.php/2735418/mod_resource/content/1/dataset01.xml)
 - [dataset02.xml](https://moodle.ufsc.br/pluginfile.php/2753879/mod_resource/content/2/dataset02.xml)
@@ -28,18 +28,25 @@ Para esta parte, pede-se exclusivamente a verificação de aninhamento e fechame
 
 # Segundo problema: contagem de componentes conexos em imagens binárias representadas em arquivo XML
 
-Cada XML, contém imagens binárias, com altura e largura, definidas respectivamente pelas marcações **\<height>** e **\<width>**, e sequência dos pixels (com valores binários, de intensidade 0 para preto ou 1 para branco), em modo texto (embora fosse melhor gravar 1 byte a cada 8 bits, optou-se pelo modo texto por simplicidade), na marcação **\<data>**. Para cada uma dessas imagens, pretende-se calcular o número de componentes conexos usando **vizinhança-4**. Para isso, seguem algumas definições importantes:
+Cada XML, contém imagens binárias, com altura e largura, definidas respectivamente pelas marcações **\<height>** e **\
+<width>**, e sequência dos pixels (com valores binários, de intensidade **0** para preto ou **1** para branco), em modo texto 
+(embora fosse melhor gravar 1 byte a cada 8 bits, optou-se pelo modo texto por simplicidade), na marcação **\<data>**. Para 
+cada uma dessas imagens, pretende-se calcular o número de componentes conexos usando **vizinhança-4**. Para isso, seguem 
+algumas definições importantes:
 
 - A **zinhança-4** de um pixel na linha **x** e coluna **y**, ou seja, na coordenada **(x,y)**, é um conjunto de pixels adjacentes nas coordenadas:
 - **(x-1, y)**
 - **(x+1, y)**
 - **(x, y-1)**
 - **(x, y+1)**
-- **Um caminho** entre um um pixel p1 e outro pn é em um sequência de pixels distintos **<p<sub>1</sub>,p<sub>2</sub>,...,p<sub>n</sub>>**, de modo que **p<sub>i</sub>** é vizinho-4 de **pi+1**, sendo **i=1,2,...,n-1**.
-- Um pixel **p** é **conexo** a um pixel q se existir um caminho de **p** a **q** (no contexto deste trabalho, só há interesse em pixels com intensidade 1, ou seja, brancos)
-- Um componente conexo é um conjunto maximal (não há outro maior que o contenha) C de pixels, no qual quaisquer dois pixels selecionados deste conjunto C são conexos.
+- **Um caminho** entre um um pixel p1 e outro pn é em um sequência de pixels distintos **
+<p<sub>1</sub>,p<sub>2</sub>,...,p<sub>n</sub>>**, de modo que **p<sub>i</sub>** é **vizinho-4** de **p<sub>i+1</sub>**, 
+sendo **i=1,2,...,n-1**.
+- Um pixel **p** é **conexo** a um pixel q se existir um caminho de **p** a **q** (no contexto deste trabalho, só há interesse em pixels com intensidade **1**, ou seja, **brancos**)
+- Um **componente conexo** é um conjunto maximal (não há outro maior que o contenha) **C** de pixels, no qual quaisquer dois 
+pixels selecionados deste conjunto **C** são **conexos**.
 
-Para a determinação da quantidade de componentes conexos, antes é necessário atribuir um rótulo inteiro e crescente (1, 2, ...) para cada pixel de cada componente conexo. Conforme apresentado em aula, segue o algoritmo de rotulação (labeling) usando uma fila (FIFO):
+Para a determinação da quantidade de componentes conexos, antes é necessário atribuir um rótulo inteiro e crescente (1, 2, ...) para cada pixel de cada componente conexo. Conforme apresentado em aula, segue o algoritmo de rotulação (labeling) usando uma fila (**FIFO**):
 
 - Inicializar rótulo com 1
 - Criar uma matriz R de zeros com o mesmo tamanho da matriz de entrada E lida
