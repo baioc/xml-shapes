@@ -1,12 +1,15 @@
 # Objetivo
 
-Este trabalho consiste na utilização de estruturas lineares, vistas até o momento no curso, e aplicação de conceitos de pilha e/ou fila para o processamento de arquivos XML contendo imagens binárias. A implementação deverá resolver dois problemas (listados a seguir), e os resultados deverão ser formatados em saída padrão de tela de modo que possam ser automaticamente avaliados no VPL.
+Este trabalho consiste na utilização de estruturas lineares, vistas até o momento no curso, e aplicação de conceitos de pilha
+e/ou fila para o processamento de arquivos XML contendo imagens binárias. A implementação deverá resolver dois problemas
+(listados a seguir), e os resultados deverão ser formatados em saída padrão de tela de modo que possam ser automaticamente 
+avaliados no VPL.
 
 # Materiais
 
 De modo a exemplificar uma entrada para o seu programa, segue o arquivo XML utilizado no primeiro teste:
 
-dataset01.xml
+- [dataset01.xml](https://moodle.ufsc.br/pluginfile.php/2735418/mod_resource/content/1/dataset01.xml)
 visualização ampliada das imagens contidas no mesmo:
 
 
