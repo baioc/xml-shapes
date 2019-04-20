@@ -14,34 +14,14 @@ void parsexml(const char * filename) {
     xml.open(filename);
     if (xml.is_open()) {
         std::cout << "aberto" << std::endl;
-        bool inside = false;
-        bool opentag = false;
         std::stringstream ss;
         for(std::string line; std::getline(xml, line);) {
             for (auto it = line.begin(); it < line.end(); it++) {
-                auto ch = *it;
-                if (!inside && ch == '<') {
-                    inside = true;
-                    opentag = true;
-                }   
-                if (inside && ch == '/') {
-                    opentag = false;
-                }
-                if (inside && ch == '>' && opentag) {
-                    inside = false;
-                    opentag = false;
-                    xmlstack.push(ss.str());
-                    std::stringstream().swap(ss);
-                }
-                if (inside && ch == '>' && !opentag) {
-                    inside = false;
-                        if (xmlstack.pop() != ss.str())
-                            throw std::out_of_range("unclosed tags!");
-                }
-                if (inside && ch == '/') {
-                } else if (inside) {
-                    ss << ch;
-                }
+            /* o string::iterator it tem o valor de cada char, *it pra acessa-lo
+
+            Logica de parsing do que esta sendo lido aqui...
+
+            */
             }
         }
         if (xmlstack.empty()) 
