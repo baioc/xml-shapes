@@ -1,4 +1,4 @@
-//! Copyright [2019] <Alek Frohlich, Gabriel B. Sant'Anna>
+// Copyright [2019] <Alek Frohlich, Gabriel B. Sant'Anna>
 
 /* libraries */
 #include <fstream>

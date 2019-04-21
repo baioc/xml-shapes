@@ -71,3 +71,6 @@ Conforme apresentado em aula, segue o algoritmo de rotulação (*labeling*) usan
   - Incrementar o `rótulo`.
 - O conteúdo final da matriz `R` corresponde ao resultado da rotulação.
 A **quantidade de componentes conexos**, que é a resposta do segundo problema, é igual ao último e **maior *rótulo* atribuído**.
+
+
+Copyright &copy; 2019 <[Alek Frohlich](https://github.com/alekfrohlich), [Gabriel B. Sant'Anna](https://github.com/baioc)>
