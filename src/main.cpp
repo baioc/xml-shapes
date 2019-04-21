@@ -6,7 +6,21 @@
 #include <regex>
 
 /* our includes */
-#include "linked_stack.cpp" // include de .cpp
+#include "linked_stack.h"
+
+
+//! Validação do arquivo XML dado em filename.
+void parsexml(const char * filename);
+
+int main() {
+    char xmlfilename[100];
+    std::cin >> xmlfilename;  // entrada: nome do arquivo
+
+    parsexml(xmlfilename);
+    std::cout << "parseou\n";
+
+    return 0;
+}
 
 
 void parsexml(const char * filename) {
@@ -55,15 +69,4 @@ void parsexml(const char * filename) {
 		throw std::out_of_range("unclosed tags!");
 
     xml.close();
-}
-
-
-int main() {
-    char xmlfilename[100];
-
-    std::cin >> xmlfilename;  // entrada
-    parsexml(xmlfilename);
-    std::cout << "parseou\n";
-
-    return 0;
 }
