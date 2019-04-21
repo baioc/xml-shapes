@@ -7,29 +7,38 @@
 #include <stdexcept>
 
 namespace structures {
-//! a
+
 template<typename T>
+//! Pilha Ecandeada
 class LinkedStack {
  public:
-    //!  a
-    LinkedStack() { }
-    //!  a
+    //! Construtor padrao.
+    LinkedStack() = default;
+
+    //! Destrutor.
     ~LinkedStack();
-    //!  a
-    void clear();  // limpa pilha
-    //!  a
-    void push(const T& data);  // empilha
-    //!  a
-    T pop();  // desempilha
-    //!  a
-    T& top() const;  // dado no topo
-    //!  a
-    bool empty() const;  // pilha vazia
-    //!  a
-    std::size_t size() const;  // tamanho da pilha
+
+    //! Empilha.
+    void push(const T& data);
+
+    //! Desempilha.
+    T pop();
+
+    //! Acessa o topo da Pilha.
+    T& top() const;
+
+    //! Confere se a Pilha esta vazia.
+    bool empty() const;
+
+    //! Retorna o tamanho da Pilha.
+    std::size_t size() const;
+
+    //! Limpa a Pilha.
+    void clear();
 
  private:
-    class Node {  // Elemento
+	// Elemento da Lista Encadeada
+    class Node {
      public:
         explicit Node(const T& data) : data_{data} { }
 
