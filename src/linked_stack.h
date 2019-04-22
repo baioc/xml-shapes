@@ -38,15 +38,15 @@ class LinkedStack {
 		//! Construtor completo.
         explicit Node(const T& data, Node* next): data_{data}, next_{next} {}
 
-		//! getter: dado
+		//! getter: dado.
         T& data() { return data_; }
-		//! getter const: dado
+		//! getter const: dado.
         const T& data() const { return data_; }
-		//! getter: próximo
+		//! getter: proximo.
         Node* next() { return next_; }
-		//! getter const: próximo
+		//! getter const: proximo.
         const Node* next() const { return next_; }
-		//! setter: próximo
+		//! setter: proximo.
         void next(Node* node) { next_ = node; }
 
      private:
