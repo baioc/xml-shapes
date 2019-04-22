@@ -1,5 +1,5 @@
 # Copyright [2019] <Alek Frohlich, Gabriel B. Sant'Anna>
-APP_NAME=xml-shapes
+APP_NAME=xml-images
 
 CC = g++
 CFLAGS = -std=c++11 -I.
