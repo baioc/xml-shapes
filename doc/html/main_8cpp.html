@@ -92,10 +92,61 @@ Funções</h2></td></tr>
 <tr class="memitem:a9af09d5d2cc4430d1002cd2661018448"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a9af09d5d2cc4430d1002cd2661018448">destroy_matrix</a> (int **img, int height)</td></tr>
 <tr class="memdesc:a9af09d5d2cc4430d1002cd2661018448"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilizado para liberar a memoria alocada por <a class="el" href="main_8cpp.html#a505d16473beb9400f5a036525b7d822d" title="Inicializa uma matriz como um array de height ponteiros para arrays com width ints....">init_matrix()</a>.  <a href="#a9af09d5d2cc4430d1002cd2661018448">Mais...</a><br /></td></tr>
 <tr class="separator:a9af09d5d2cc4430d1002cd2661018448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69968acae29bc7e7a8f4cf21940a4fbf"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a69968acae29bc7e7a8f4cf21940a4fbf">count_shapes</a> (int **img, int width, int height)</td></tr>
+<tr class="memdesc:a69968acae29bc7e7a8f4cf21940a4fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o numero de componentes conexos na matriz usando vizinhanca-4.  <a href="#a69968acae29bc7e7a8f4cf21940a4fbf">Mais...</a><br /></td></tr>
+<tr class="separator:a69968acae29bc7e7a8f4cf21940a4fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Funções</h2>
+<a id="a69968acae29bc7e7a8f4cf21940a4fbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69968acae29bc7e7a8f4cf21940a4fbf">&#9670;&nbsp;</a></span>count_shapes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int count_shapes </td>
+          <td>(</td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>img</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calcula o numero de componentes conexos na matriz usando vizinhanca-4. </p>
+
+<p class="definition">Definição na linha <a class="el" href="main_8cpp_source.html#l00075">75</a> do arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+<p class="reference">Referenciado(a) por <a class="el" href="main_8cpp_source.html#l00025">main()</a>.</p>
+
+</div>
+</div>
 <a id="a9af09d5d2cc4430d1002cd2661018448"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9af09d5d2cc4430d1002cd2661018448">&#9670;&nbsp;</a></span>destroy_matrix()</h2>
 
@@ -132,9 +183,9 @@ Funções</h2></td></tr>
 
 <p>Utilizado para liberar a memoria alocada por <a class="el" href="main_8cpp.html#a505d16473beb9400f5a036525b7d822d" title="Inicializa uma matriz como um array de height ponteiros para arrays com width ints....">init_matrix()</a>. </p>
 
-<p class="definition">Definição na linha <a class="el" href="main_8cpp_source.html#l00121">121</a> do arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definição na linha <a class="el" href="main_8cpp_source.html#l00115">115</a> do arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p class="reference">Referenciado(a) por <a class="el" href="main_8cpp_source.html#l00024">main()</a>.</p>
+<p class="reference">Referenciado(a) por <a class="el" href="main_8cpp_source.html#l00025">main()</a>.</p>
 
 </div>
 </div>
@@ -180,9 +231,9 @@ Funções</h2></td></tr>
 
 <p>Inicializa uma matriz como um array de height ponteiros para arrays com width ints. Deve ser destruido com <a class="el" href="main_8cpp.html#a9af09d5d2cc4430d1002cd2661018448" title="Utilizado para liberar a memoria alocada por init_matrix().">destroy_matrix()</a> para liberar a memoria. </p>
 
-<p class="definition">Definição na linha <a class="el" href="main_8cpp_source.html#l00086">86</a> do arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definição na linha <a class="el" href="main_8cpp_source.html#l00081">81</a> do arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p class="reference">Referenciado(a) por <a class="el" href="main_8cpp_source.html#l00024">main()</a>.</p>
+<p class="reference">Referenciado(a) por <a class="el" href="main_8cpp_source.html#l00025">main()</a>.</p>
 
 </div>
 </div>
@@ -201,9 +252,9 @@ Funções</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definição na linha <a class="el" href="main_8cpp_source.html#l00024">24</a> do arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definição na linha <a class="el" href="main_8cpp_source.html#l00025">25</a> do arquivo <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
-<p class="reference">Referencias <a class="el" href="xml_8cpp_source.html#l00012">xml::balanced()</a>, <a class="el" href="main_8cpp_source.html#l00121">destroy_matrix()</a>, <a class="el" href="xml_8cpp_source.html#l00053">xml::extract()</a> e <a class="el" href="main_8cpp_source.html#l00086">init_matrix()</a>.</p>
+<p class="reference">Referencias <a class="el" href="xml_8cpp_source.html#l00012">xml::balanced()</a>, <a class="el" href="main_8cpp_source.html#l00075">count_shapes()</a>, <a class="el" href="main_8cpp_source.html#l00115">destroy_matrix()</a>, <a class="el" href="xml_8cpp_source.html#l00053">xml::extract()</a> e <a class="el" href="main_8cpp_source.html#l00081">init_matrix()</a>.</p>
 
 </div>
 </div>

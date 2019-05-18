@@ -12,14 +12,15 @@
 #include "xml.h"
 
 
-// @TODO: aplicar RAII em um objeto matriz
-
 //! Inicializa uma matriz como um array de height ponteiros para arrays com width ints.
 //! Deve ser destruido com destroy_matrix() para liberar a memoria.
 static int** init_matrix(const std::string& data, int width, int height);
 
 //! Utilizado para liberar a memoria alocada por init_matrix().
 static void destroy_matrix(int** img, int height);
+
+//! Calcula o numero de componentes conexos na matriz usando vizinhanca-4.
+static int count_shapes(int** img, int width, int height);
 
 int main() {
 	using namespace std;
@@ -61,21 +62,9 @@ int main() {
 		if (height <= 0 || width <= 0)
 			return -2;
 
-		// parse da imagem propriamente dita
+		// processamento da imagem propriamente dita
 		auto frame = init_matrix(extract(img, "<data>", "</data>"), width, height);
-
-		#ifdef DEBUG
-			cout << name << ' ' << width << 'x' << height << '\n';
-			for (int i = 0; i < height; ++i) {
-				for (int j = 0; j < width; ++j) {
-					cout << frame[i][j];
-				}
-				cout << '\n';
-			}
-		#endif  // DEBUG
-
-		// @TODO: aplicar o algoritmo de busca de formas na matriz
-
+		cout << name << ' ' << count_shapes(frame, width, height) << '\n';
 		destroy_matrix(frame, height);
 	}
 
@@ -83,11 +72,16 @@ int main() {
 }
 
 
-static int** init_matrix(const std::string& data, int width, int height) {
-	using namespace std;
+static int count_shapes(int** img, int width, int height) {
+	// @TODO: aplicar o algoritmo de busca de formas na matriz
+	return 0;
+}
 
+
+static int** init_matrix(const std::string& data, int width, int height) {
 	assert(width > 0);
 	assert(height > 0);
+	using namespace std;
 
 	// alloc()a memoria para a matriz
 	int** img = new int*[height];
