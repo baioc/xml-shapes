@@ -2,7 +2,7 @@
 
 template<typename T>
 LinkedStack<T>::~LinkedStack() {
-    clear();
+	clear();
 }
 
 template<typename T>
@@ -14,31 +14,31 @@ void LinkedStack<T>::clear() {
 template<typename T>
 void LinkedStack<T>::push(const T& data) {
 	top_ = new Node(data, empty() ? nullptr : top_);
-    size_++;
+	++size_;
 }
 
 template<typename T>
 T LinkedStack<T>::pop() {
-    if (empty())
-        throw std::out_of_range("Pilha vazia, underflow.");
+	if (empty())
+		throw std::out_of_range("Pilha vazia, underflow.");
 
-    auto nodepopped = top_;
-    const T datapopped = top_->data();
+	auto nodepopped = top_;
+	const T datapopped = top_->data();
 
-    if (size() == 1)
-        top_ = nullptr;
-    else
-        top_ = top_->next();
+	if (size() == 1)
+		top_ = nullptr;
+	else
+		top_ = top_->next();
 
-    delete nodepopped;
+	delete nodepopped;
 
-    --size_;
-    return datapopped;
+	--size_;
+	return datapopped;
 }
 
 template<typename T>
 T& LinkedStack<T>::top() const {
-    if (empty())
+	if (empty())
 		throw std::out_of_range("Pilha vazia, nada no topo.");
 
 	return top_->data();
@@ -46,10 +46,10 @@ T& LinkedStack<T>::top() const {
 
 template<typename T>
 bool LinkedStack<T>::empty() const {
-    return size_ == 0;
+	return size_ == 0;
 }
 
 template<typename T>
 std::size_t LinkedStack<T>::size() const {
-    return size_;
+	return size_;
 }

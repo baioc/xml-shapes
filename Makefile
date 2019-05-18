@@ -9,7 +9,7 @@ DEBUG_CFLAGS = $(TEST_CFLAGS) -D DEBUG -O0
 BUILD_CFLAGS = -D NDEBUG -O2
 
 TARGET = src/main.cpp
-DEPS = $(TARGET) src/linked_stack.h src/linked_stack.inc
+DEPS = $(TARGET) src/linked_stack.h src/linked_stack.inc src/linked_queue.h src/linked_queue.inc
 
 default: $(DEPS)
 	$(CC) $(CFLAGS) $(TEST_CFLAGS) -o $(APP_NAME).out $(TARGET)
