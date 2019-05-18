@@ -1,72 +1,125 @@
 // Copyright [2019] <Alek Frohlich, Gabriel B. Sant'Anna>
-
 /* libraries */
-#include <fstream>
 #include <iostream>
-#include <regex>
+#include <string>
+#include <fstream>
+#include <sstream>
+#include <algorithm>
+#include <cctype>
+#include <cassert>
 
 /* our includes */
-#include "linked_stack.h"
+#include "xml.h"
 
 
-//! Validação do arquivo XML dado em filename.
-void parsexml(const char * filename);
+// @TODO: aplicar RAII em um objeto matriz
+
+//! Inicializa uma matriz como um array de height ponteiros para arrays com width ints.
+//! Deve ser destruido com destroy_matrix() para liberar a memoria.
+static int** init_matrix(const std::string& data, int width, int height);
+
+//! Utilizado para liberar a memoria alocada por init_matrix().
+static void destroy_matrix(int** img, int height);
 
 int main() {
-    char xmlfilename[100];
-    std::cin >> xmlfilename;  // entrada: nome do arquivo
+	using namespace std;
+	using namespace xml;
 
-    parsexml(xmlfilename);
-    std::cout << "parseou\n";
+	// le o nome do arquivo
+	char xmlfilename[100];
+	cin.getline(xmlfilename, 100);
 
-    return 0;
+	// abre o arquivo
+	ifstream file{xmlfilename};
+	if (!file.is_open())
+		return 1;
+
+	// bufferiza em uma string
+	stringstream buffer;
+	buffer << file.rdbuf();
+	file.close();
+	auto xml = buffer.str();
+
+	// valida o XML
+	if (!balanced(xml)) {
+		cout << "error\n";
+		return -1;
+	}
+
+	// para cada imagem no arquivo
+	size_t from{0};
+	while (from < xml.length()) {
+		// extrai uma imagem com atributos
+		const auto img = extract(xml, "<img>", "</img>", from);
+		if (from == string::npos)
+			break;
+
+		// extrai atributos
+		const auto name = extract(img, "<name>", "</name>");
+		const auto height = stoi(extract(img, "<height>", "</height>"));
+		const auto width = stoi(extract(img, "<width>", "</width>"));
+		if (height <= 0 || width <= 0)
+			return -2;
+
+		// parse da imagem propriamente dita
+		auto frame = init_matrix(extract(img, "<data>", "</data>"), width, height);
+
+		#ifdef DEBUG
+			cout << name << ' ' << width << 'x' << height << '\n';
+			for (int i = 0; i < height; ++i) {
+				for (int j = 0; j < width; ++j) {
+					cout << frame[i][j];
+				}
+				cout << '\n';
+			}
+		#endif  // DEBUG
+
+		// @TODO: aplicar o algoritmo de busca de formas na matriz
+
+		destroy_matrix(frame, height);
+	}
+
+	return 0;
 }
 
 
-void parsexml(const char * filename) {
-    structures::LinkedStack<std::string> xmlstack;
-    std::regex tag("<[^>]*>");
+static int** init_matrix(const std::string& data, int width, int height) {
+	using namespace std;
 
-    std::ifstream xml;
-    xml.open(filename);
-    if (!xml.is_open()) {
-		std::cout << "fechado" << '\n';
-		return;
+	assert(width > 0);
+	assert(height > 0);
+
+	// alloc()a memoria para a matriz
+	int** img = new int*[height];
+	for (int i = 0; i < height; ++i) {
+		img[i] = new int[width];
+		for (int j = 0; j < width; ++j)
+			img[i][j] = 0;
 	}
 
-	std::cout << "aberto" << "\n\n";
+	int i = 0, j = 0;
+	for (const auto& c : data) {
+		// ignorar whitespace
+		if (isspace(c))
+			continue;
 
-	for (std::string line; std::getline(xml, line);) {
-		std::smatch results;
+		// preenche a matriz
+		img[i][j] = c - '0';
 
-		std::cout << "parsing: " << line << '\n';
-		while (regex_search(line, results, tag)) {
-			if (!results.ready())
+		// confere se chegou ao fim de uma linha
+		if (++j >= width) {
+			j = 0;
+			// sai do loop se chegou na altura desejada
+			if (++i >= height)
 				break;
-
-			if (results.str(0)[1] != '/') {
-				xmlstack.push(results.str(0));
-				std::cout << "opentag = " << results.str(0) << '\n';
-			} else {
-				auto closetag = results.str(0);
-				std::cout << "closetag = " << closetag << '\n';
-
-				const auto top = xmlstack.pop();
-				std::cout << "top = " << top << '\n';
-
-				closetag.erase(1,1);
-				if (closetag != top)
-					throw std::out_of_range("unclosed tags!"); // out_of_range ?
-			}
-
-			line = results.suffix().str();
 		}
-
-		std::cout << "ended regsearch" << '\n';
 	}
 
-	if (!xmlstack.empty())
-		throw std::out_of_range("unclosed tags!");
+	return img;
+}
 
-    xml.close();
+static void destroy_matrix(int** img, int height) {
+	for (int i = 0; i < height; ++i)
+		delete[] img[i];
+	delete[] img;
 }
