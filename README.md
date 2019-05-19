@@ -45,11 +45,11 @@ Conforme apresentado em aula, segue o algoritmo de rotulação (*labeling*) usan
   - Assim que encontrar o primeiro pixel de intensidade **1 ainda não visitado** (igual a **0** na mesma coordenada em `R`).
     - Inserir `(x,y)` na fila.
     - Na coordenada `(x,y)` da imagem `R`, atribuir o `rótulo` atual.
-  - Enquanto a fila não estiver vazia:
-    - Remover `(x,y)` da fila.
-    - Inserir na fila as coordenadas dos quatro vizinhos que estejam dentro do domínio da imagem (não pode ter coordenada negativa ou superar o número de linhas ou de colunas), com intensidade **1** (em `E`) e ainda não tenha sido visitado (igual a **0** em `R`).
+    - Enquanto a fila não estiver vazia:
+      - Remover `(x,y)` da fila.
+      - Inserir na fila as coordenadas dos quatro vizinhos que estejam dentro do domínio da imagem (não pode ter coordenada negativa ou superar o número de linhas ou de colunas), com intensidade **1** (em `E`) e ainda não tenha sido visitado (igual a **0** em `R`).
       - Na coordenada de cada vizinho selecionado, na imagem `R`, atribuir o `rótulo` atual.
-  - Incrementar o `rótulo`.
+    - Incrementar o `rótulo`.
 - O conteúdo final da matriz `R` corresponde ao resultado da rotulação.
 A **quantidade de componentes conexos**, que é a resposta do segundo problema, é igual ao último e **maior *rótulo* atribuído**.
 
