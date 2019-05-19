@@ -14,13 +14,17 @@
 
 //! Inicializa uma matriz como um array de height ponteiros para arrays com width ints.
 //! Deve ser destruido com destroy_matrix() para liberar a memoria.
-static int** init_matrix(const std::string& data, int width, int height);
+static int** init_matrix(int height, int width);
+
+//! Inicializa uma matriz a partir da string que representa seus valores.
+//! Deve ser destruido com destroy_matrix() para liberar a memoria.
+static int** init_matrix(int height, int width, const std::string& data);
 
 //! Utilizado para liberar a memoria alocada por init_matrix().
 static void destroy_matrix(int** img, int height);
 
 //! Calcula o numero de componentes conexos na matriz usando vizinhanca-4.
-static int count_shapes(int** img, int width, int height);
+static int count_shapes(int** img, int height, int width);
 
 int main() {
 	using namespace std;
@@ -63,8 +67,16 @@ int main() {
 			return -2;
 
 		// processamento da imagem propriamente dita
-		auto frame = init_matrix(extract(img, "<data>", "</data>"), width, height);
-		cout << name << ' ' << count_shapes(frame, width, height) << '\n';
+		auto frame = init_matrix(height, width, extract(img, "<data>", "</data>"));
+		cout << name << ' ' << count_shapes(frame, height, width) << '\n';
+		#ifdef DEBUG
+			for (int i = 0; i < height; ++i) {
+				for (int j = 0; j < width; ++j) {
+					cout << frame[i][j];
+				}
+				cout << '\n';
+			}
+		#endif  // DEBUG
 		destroy_matrix(frame, height);
 	}
 
@@ -72,33 +84,41 @@ int main() {
 }
 
 
-static int count_shapes(int** img, int width, int height) {
+static int count_shapes(int** img, int height, int width) {
 	// @TODO: aplicar o algoritmo de busca de formas na matriz
 	return -1;
 }
 
 
-static int** init_matrix(const std::string& data, int width, int height) {
+static int** init_matrix(int height, int width) {
 	assert(width > 0);
 	assert(height > 0);
-	using namespace std;
-
-	// alloc()a memoria para a matriz
-	int** img = new int*[height];
+	int** matrix = new int*[height];
 	for (int i = 0; i < height; ++i) {
-		img[i] = new int[width];
+		matrix[i] = new int[width];
 		for (int j = 0; j < width; ++j)
-			img[i][j] = 0;
+			matrix[i][j] = 0;
 	}
+	return matrix;
+}
+
+static void destroy_matrix(int** img, int height) {
+	for (int i = 0; i < height; ++i)
+		delete[] img[i];
+	delete[] img;
+}
+
+static int** init_matrix(int height, int width, const std::string& data) {
+	auto img = init_matrix(height, width);
 
 	int i = 0, j = 0;
 	for (const auto& c : data) {
 		// ignorar whitespace
-		if (isspace(c))
+		if (std::isspace(c))
 			continue;
 
 		// preenche a matriz
-		img[i][j] = c - '0';
+		img[i][j] = c - '0'; // conversao de char ASCII para int
 
 		// confere se chegou ao fim de uma linha
 		if (++j >= width) {
@@ -110,10 +130,4 @@ static int** init_matrix(const std::string& data, int width, int height) {
 	}
 
 	return img;
-}
-
-static void destroy_matrix(int** img, int height) {
-	for (int i = 0; i < height; ++i)
-		delete[] img[i];
-	delete[] img;
 }

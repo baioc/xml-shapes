@@ -1,6 +1,8 @@
 Trabalho de Implementação I - Processamento de XML com imagens binárias
 ====
 
+Copyright &copy; 2019 <[Alek Frohlich](https://github.com/alekfrohlich), [Gabriel B. Sant'Anna](https://github.com/baioc)>
+
 Veja a [documentação](doc/latex/refman.pdf).
 
 ## Objetivo
@@ -23,7 +25,7 @@ De modo a exemplificar as entradas para o seu programa, segue os arquivos XML ut
 ### Composição da nota:
 - Nota automática do [VPL](https://moodle.ufsc.br/mod/vpl/view.php?id=1798658)<sup>*</sup>: **70%**
   * (*) Caso algum caso de teste não tenha sido bem sucedido, o aluno opcionalmente poderá defender sua solução no dia reservado à apresentação do Trabalho de Implementação I.
-- [Relatório em PDF]((doc/latex/refman.pdf)) (utilize [este link](https://moodle.ufsc.br/mod/assign/view.php?id=1798666) para a submissão) com todas as explicações pertinentes e documentação<sup>**</sup> do código: **30%**
+- [Relatório em PDF](doc/latex/refman.pdf) (utilize [este link](https://moodle.ufsc.br/mod/assign/view.php?id=1798666) para a submissão) com todas as explicações pertinentes e documentação<sup>**</sup> do código: **30%**
   * (**) Sugere-se a escrita no próprio código usando a notação [Doxygen](http://www.doxygen.nl/manual/docblocks.html) com a geração automática de [LaTeX](doc/latex/refman.tex)/[PDF](doc/latex/refman.pdf).
 
 
@@ -55,7 +57,7 @@ Para isso, seguem algumas definições importantes:
          (x, y-1)
 ```
 - Um ***caminho*** entre um um pixel *p<sub>1</sub>* e outro *p<sub>n</sub>* é uma sequência de pixels distintos **<p<sub>1</sub>,p<sub>2</sub>,...,p<sub>n</sub>>**, de modo que *p<sub>i</sub>* é **vizinho-4** de *p<sub>i+1</sub>*; sendo i=1,2,...,n-1
-- Um pixel *p* é ***conexo*** a um pixel *q* se existir um **caminho** de *p** a **q* (no contexto deste trabalho, só há interesse em pixels com intensidade 1, ou seja, brancos).
+- Um pixel *p* é ***conexo*** a um pixel *q* se existir um **caminho** de *p* a *q* (no contexto deste trabalho, só há interesse em pixels com intensidade 1, ou seja, brancos).
 - Um ***componente conexo*** é um *conjunto maximal* (não há outro maior que o contenha) *C* de pixels, no qual **quaisquer dois pixels** selecionados deste conjunto *C* são **conexos**.
 
 Para a determinação da quantidade de componentes conexos, antes é necessário atribuir um **rótulo** inteiro e crescente (1, 2, ...) para cada pixel de cada componente conexo.
@@ -73,6 +75,3 @@ Conforme apresentado em aula, segue o algoritmo de rotulação (*labeling*) usan
   - Incrementar o `rótulo`.
 - O conteúdo final da matriz `R` corresponde ao resultado da rotulação.
 A **quantidade de componentes conexos**, que é a resposta do segundo problema, é igual ao último e **maior *rótulo* atribuído**.
-
-
-Copyright &copy; 2019 <[Alek Frohlich](https://github.com/alekfrohlich), [Gabriel B. Sant'Anna](https://github.com/baioc)>
