@@ -1,6 +1,8 @@
 Trabalho de Implementação I - Processamento de XML com imagens binárias
 ====
 
+Veja a [documentação](doc/latex/refman.pdf).
+
 ## Objetivo
 
 Este trabalho consiste na utilização de **estruturas de dados lineares**, vistas até o momento no curso, e aplicação de conceitos de **pilha** e/ou **fila** para o processamento de arquivos **XML** contendo **imagens binárias**.
@@ -21,8 +23,8 @@ De modo a exemplificar as entradas para o seu programa, segue os arquivos XML ut
 ### Composição da nota:
 - Nota automática do [VPL](https://moodle.ufsc.br/mod/vpl/view.php?id=1798658)<sup>*</sup>: **70%**
   * (*) Caso algum caso de teste não tenha sido bem sucedido, o aluno opcionalmente poderá defender sua solução no dia reservado à apresentação do Trabalho de Implementação I.
-- Relatório em PDF (utilize [este link](https://moodle.ufsc.br/mod/assign/view.php?id=1798666) para a submissão) com todas as explicações pertinentes e documentação<sup>**</sup> do código: **30%**
-  * (**) Sugere-se a escrita no próprio código usando a notação [Doxygen](http://www.doxygen.nl/manual/docblocks.html) com a geração automática de LaTeX/PDF.
+- [Relatório em PDF]((doc/latex/refman.pdf)) (utilize [este link](https://moodle.ufsc.br/mod/assign/view.php?id=1798666) para a submissão) com todas as explicações pertinentes e documentação<sup>**</sup> do código: **30%**
+  * (**) Sugere-se a escrita no próprio código usando a notação [Doxygen](http://www.doxygen.nl/manual/docblocks.html) com a geração automática de [LaTeX](doc/latex/refman.tex)/[PDF](doc/latex/refman.pdf).
 
 
 # Primeiro problema: validação de arquivo XML

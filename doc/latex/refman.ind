@@ -1,0 +1,109 @@
+\begin{theindex}
+
+  \item {$\sim$LinkedQueue}
+    \subitem {structures::LinkedQueue$<$ T $>$}, \hyperpage{10}
+  \item {$\sim$LinkedStack}
+    \subitem {structures::LinkedStack$<$ T $>$}, \hyperpage{12}
+
+  \indexspace
+
+  \item {back}
+    \subitem {structures::LinkedQueue$<$ T $>$}, \hyperpage{10}
+  \item {balanced}
+    \subitem {xml}, \hyperpage{7}
+
+  \indexspace
+
+  \item {clear}
+    \subitem {structures::LinkedQueue$<$ T $>$}, \hyperpage{10}
+    \subitem {structures::LinkedStack$<$ T $>$}, \hyperpage{13}
+  \item {count\_shapes}
+    \subitem {main.cpp}, \hyperpage{16}
+
+  \indexspace
+
+  \item {dequeue}
+    \subitem {structures::LinkedQueue$<$ T $>$}, \hyperpage{10}
+  \item {destroy\_matrix}
+    \subitem {main.cpp}, \hyperpage{16}
+
+  \indexspace
+
+  \item {empty}
+    \subitem {structures::LinkedQueue$<$ T $>$}, \hyperpage{10}
+    \subitem {structures::LinkedStack$<$ T $>$}, \hyperpage{13}
+  \item {enqueue}
+    \subitem {structures::LinkedQueue$<$ T $>$}, \hyperpage{11}
+  \item {extract}
+    \subitem {xml}, \hyperpage{7, 8}
+
+  \indexspace
+
+  \item {front}
+    \subitem {structures::LinkedQueue$<$ T $>$}, \hyperpage{11}
+
+  \indexspace
+
+  \item {init\_matrix}
+    \subitem {main.cpp}, \hyperpage{17}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.cpp}, \hyperpage{17}
+  \item {main.cpp}
+    \subitem {count\_shapes}, \hyperpage{16}
+    \subitem {destroy\_matrix}, \hyperpage{16}
+    \subitem {init\_matrix}, \hyperpage{17}
+    \subitem {main}, \hyperpage{17}
+
+  \indexspace
+
+  \item {pop}
+    \subitem {structures::LinkedStack$<$ T $>$}, \hyperpage{13}
+  \item {push}
+    \subitem {structures::LinkedStack$<$ T $>$}, \hyperpage{13}
+
+  \indexspace
+
+  \item {size}
+    \subitem {structures::LinkedQueue$<$ T $>$}, \hyperpage{11}
+    \subitem {structures::LinkedStack$<$ T $>$}, \hyperpage{13}
+  \item {src/linked\_queue.h}, \hyperpage{15}
+  \item {src/linked\_queue.inc}, \hyperpage{15}
+  \item {src/linked\_stack.h}, \hyperpage{15}
+  \item {src/linked\_stack.inc}, \hyperpage{16}
+  \item {src/main.cpp}, \hyperpage{16}
+  \item {src/xml.cpp}, \hyperpage{17}
+  \item {src/xml.h}, \hyperpage{18}
+  \item {structures}, \hyperpage{7}
+  \item {structures::LinkedQueue$<$ T $>$}, \hyperpage{9}
+    \subitem {$\sim$LinkedQueue}, \hyperpage{10}
+    \subitem {back}, \hyperpage{10}
+    \subitem {clear}, \hyperpage{10}
+    \subitem {dequeue}, \hyperpage{10}
+    \subitem {empty}, \hyperpage{10}
+    \subitem {enqueue}, \hyperpage{11}
+    \subitem {front}, \hyperpage{11}
+    \subitem {size}, \hyperpage{11}
+  \item {structures::LinkedStack$<$ T $>$}, \hyperpage{12}
+    \subitem {$\sim$LinkedStack}, \hyperpage{12}
+    \subitem {clear}, \hyperpage{13}
+    \subitem {empty}, \hyperpage{13}
+    \subitem {pop}, \hyperpage{13}
+    \subitem {push}, \hyperpage{13}
+    \subitem {size}, \hyperpage{13}
+    \subitem {top}, \hyperpage{14}
+
+  \indexspace
+
+  \item {top}
+    \subitem {structures::LinkedStack$<$ T $>$}, \hyperpage{14}
+
+  \indexspace
+
+  \item {xml}, \hyperpage{7}
+    \subitem {balanced}, \hyperpage{7}
+    \subitem {extract}, \hyperpage{7, 8}
+
+\end{theindex}

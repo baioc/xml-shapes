@@ -28,5 +28,11 @@ gdb:
 build: $(DEPS)
 	$(CC) $(CFLAGS) $(BUILD_CFLAGS) -o $(APP_NAME).out $(TARGETS)
 
+docs:
+	doxygen
+	cd doc/latex
+	make
+	cd ../..
+
 clean:
 	rm *.out

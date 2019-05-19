@@ -74,7 +74,7 @@ int main() {
 
 static int count_shapes(int** img, int width, int height) {
 	// @TODO: aplicar o algoritmo de busca de formas na matriz
-	return 0;
+	return -1;
 }
 
 

@@ -1,0 +1,55 @@
+\indexentry{structures@{structures}|hyperpage}{7}
+\indexentry{xml@{xml}|hyperpage}{7}
+\indexentry{xml@{xml}!balanced@{balanced}|hyperpage}{7}
+\indexentry{balanced@{balanced}!xml@{xml}|hyperpage}{7}
+\indexentry{xml@{xml}!extract@{extract}|hyperpage}{7}
+\indexentry{extract@{extract}!xml@{xml}|hyperpage}{7}
+\indexentry{xml@{xml}!extract@{extract}|hyperpage}{8}
+\indexentry{extract@{extract}!xml@{xml}|hyperpage}{8}
+\indexentry{structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}|hyperpage}{9}
+\indexentry{structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}!````~LinkedQueue@{$\sim$LinkedQueue}|hyperpage}{10}
+\indexentry{````~LinkedQueue@{$\sim$LinkedQueue}!structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}|hyperpage}{10}
+\indexentry{structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}!back@{back}|hyperpage}{10}
+\indexentry{back@{back}!structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}|hyperpage}{10}
+\indexentry{structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}!clear@{clear}|hyperpage}{10}
+\indexentry{clear@{clear}!structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}|hyperpage}{10}
+\indexentry{structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}!dequeue@{dequeue}|hyperpage}{10}
+\indexentry{dequeue@{dequeue}!structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}|hyperpage}{10}
+\indexentry{structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}!empty@{empty}|hyperpage}{10}
+\indexentry{empty@{empty}!structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}|hyperpage}{10}
+\indexentry{structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}!enqueue@{enqueue}|hyperpage}{11}
+\indexentry{enqueue@{enqueue}!structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}|hyperpage}{11}
+\indexentry{structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}!front@{front}|hyperpage}{11}
+\indexentry{front@{front}!structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}|hyperpage}{11}
+\indexentry{structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}!size@{size}|hyperpage}{11}
+\indexentry{size@{size}!structures::LinkedQueue$<$ T $>$@{structures::LinkedQueue$<$ T $>$}|hyperpage}{11}
+\indexentry{structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}|hyperpage}{12}
+\indexentry{structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}!````~LinkedStack@{$\sim$LinkedStack}|hyperpage}{12}
+\indexentry{````~LinkedStack@{$\sim$LinkedStack}!structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}|hyperpage}{12}
+\indexentry{structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}!clear@{clear}|hyperpage}{13}
+\indexentry{clear@{clear}!structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}|hyperpage}{13}
+\indexentry{structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}!empty@{empty}|hyperpage}{13}
+\indexentry{empty@{empty}!structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}|hyperpage}{13}
+\indexentry{structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}!pop@{pop}|hyperpage}{13}
+\indexentry{pop@{pop}!structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}|hyperpage}{13}
+\indexentry{structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}!push@{push}|hyperpage}{13}
+\indexentry{push@{push}!structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}|hyperpage}{13}
+\indexentry{structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}!size@{size}|hyperpage}{13}
+\indexentry{size@{size}!structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}|hyperpage}{13}
+\indexentry{structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}!top@{top}|hyperpage}{14}
+\indexentry{top@{top}!structures::LinkedStack$<$ T $>$@{structures::LinkedStack$<$ T $>$}|hyperpage}{14}
+\indexentry{src/linked\_queue.h@{src/linked\_queue.h}|hyperpage}{15}
+\indexentry{src/linked\_queue.inc@{src/linked\_queue.inc}|hyperpage}{15}
+\indexentry{src/linked\_stack.h@{src/linked\_stack.h}|hyperpage}{15}
+\indexentry{src/linked\_stack.inc@{src/linked\_stack.inc}|hyperpage}{16}
+\indexentry{src/main.cpp@{src/main.cpp}|hyperpage}{16}
+\indexentry{main.cpp@{main.cpp}!count\_shapes@{count\_shapes}|hyperpage}{16}
+\indexentry{count\_shapes@{count\_shapes}!main.cpp@{main.cpp}|hyperpage}{16}
+\indexentry{main.cpp@{main.cpp}!destroy\_matrix@{destroy\_matrix}|hyperpage}{16}
+\indexentry{destroy\_matrix@{destroy\_matrix}!main.cpp@{main.cpp}|hyperpage}{16}
+\indexentry{main.cpp@{main.cpp}!init\_matrix@{init\_matrix}|hyperpage}{17}
+\indexentry{init\_matrix@{init\_matrix}!main.cpp@{main.cpp}|hyperpage}{17}
+\indexentry{main.cpp@{main.cpp}!main@{main}|hyperpage}{17}
+\indexentry{main@{main}!main.cpp@{main.cpp}|hyperpage}{17}
+\indexentry{src/xml.cpp@{src/xml.cpp}|hyperpage}{17}
+\indexentry{src/xml.h@{src/xml.h}|hyperpage}{18}

@@ -1,0 +1,64 @@
+\hypertarget{namespacexml}{}\section{Refência do Namespace xml}
+\label{namespacexml}\index{xml@{xml}}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacexml_a3ef8f381726c12dd6126676f94f0e8eb}{balanced}} (const std\+::string \&xml)
+\begin{DoxyCompactList}\small\item\em Confere a validez da estrutura do X\+ML contido na string. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespacexml_a71783e2f9895997decf223259658b1d9}{extract}} (const std\+::string \&origin, const std\+::string \&open, const std\+::string \&close, std\+::size\+\_\+t \&from)
+\begin{DoxyCompactList}\small\item\em Extrai substring de uma string entre dois delimitadores encontrados a partir de uma dada posicao. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespacexml_a0737f196962e22c2120336ba27909da1}{extract}} (const std\+::string \&origin, const std\+::string \&open, const std\+::string \&close)
+\begin{DoxyCompactList}\small\item\em Extrai substring de uma string entre dois delimitadores. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{namespacexml_a3ef8f381726c12dd6126676f94f0e8eb}\label{namespacexml_a3ef8f381726c12dd6126676f94f0e8eb}} 
+\index{xml@{xml}!balanced@{balanced}}
+\index{balanced@{balanced}!xml@{xml}}
+\subsubsection{\texorpdfstring{balanced()}{balanced()}}
+{\footnotesize\ttfamily bool xml\+::balanced (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{xml }\end{DoxyParamCaption})}
+
+
+
+Confere a validez da estrutura do X\+ML contido na string. 
+
+
+
+Definição na linha 12 do arquivo xml.\+cpp.
+
+
+
+Referenciado(a) por main().
+
+\mbox{\Hypertarget{namespacexml_a71783e2f9895997decf223259658b1d9}\label{namespacexml_a71783e2f9895997decf223259658b1d9}} 
+\index{xml@{xml}!extract@{extract}}
+\index{extract@{extract}!xml@{xml}}
+\subsubsection{\texorpdfstring{extract()}{extract()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::string xml\+::extract (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{origin,  }\item[{const std\+::string \&}]{open,  }\item[{const std\+::string \&}]{close,  }\item[{std\+::size\+\_\+t \&}]{from }\end{DoxyParamCaption})}
+
+
+
+Extrai substring de uma string entre dois delimitadores encontrados a partir de uma dada posicao. 
+
+Retorna a substring extraida (sem delimitadores) e altera a posicao para o final do ultimo delimitador encontrado. Se nao encontrar nada, retorna string vazia e leva a posicao para npos. 
+
+Definição na linha 53 do arquivo xml.\+cpp.
+
+
+
+Referenciado(a) por extract() e main().
+
+\mbox{\Hypertarget{namespacexml_a0737f196962e22c2120336ba27909da1}\label{namespacexml_a0737f196962e22c2120336ba27909da1}} 
+\index{xml@{xml}!extract@{extract}}
+\index{extract@{extract}!xml@{xml}}
+\subsubsection{\texorpdfstring{extract()}{extract()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string xml\+::extract (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{origin,  }\item[{const std\+::string \&}]{open,  }\item[{const std\+::string \&}]{close }\end{DoxyParamCaption})}
+
+
+
+Extrai substring de uma string entre dois delimitadores. 
+
+Retorna a substring extraida (sem delimitadores). Se nao encontrar nada, retorna string vazia. 
+
+Definição na linha 70 do arquivo xml.\+cpp.
+
