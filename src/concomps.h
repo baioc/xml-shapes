@@ -5,7 +5,7 @@
 
 namespace concomps {
 
-    int findgcc(int ** E, int height, int width);
+    int count_shapes(int ** E, int height, int width);
 
 }  // namespace concomps
 

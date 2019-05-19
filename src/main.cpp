@@ -22,6 +22,7 @@ static void destroy_matrix(int** img, int height);
 int main() {
 	using namespace std;
 	using namespace xml;
+    using namespace concomps;
 
 	// le o nome do arquivo
 	char xmlfilename[100];
@@ -60,7 +61,7 @@ int main() {
 			return -2;
 
 		// processamento da imagem propriamente dita
-		auto frame = init_matrix(extract(img, "<data>", "</data>"), width, height);
+		auto frame = init_matrix(extract(img, "<data>", "</data>"), height, width);
 		cout << name << ' ' << count_shapes(frame, width, height) << '\n';
 		destroy_matrix(frame, height);
 	}
@@ -68,16 +69,6 @@ int main() {
 	return 0;
 }
 
-<<<<<<< HEAD
-=======
-
-static int count_shapes(int** img, int width, int height) {
-	// @TODO: aplicar o algoritmo de busca de formas na matriz
-	return -1;
-}
-
-
->>>>>>> 4ff435c98b180a477f97cc3cc421debd56a59314
 static int** init_matrix(const std::string& data, int width, int height) {
 	assert(width > 0);
 	assert(height > 0);
