@@ -10,7 +10,7 @@
 
 /* our includes */
 #include "xml.h"
-
+#include "concomps.h"
 
 //! Inicializa uma matriz como um array de height ponteiros para arrays com width ints.
 //! Deve ser destruido com destroy_matrix() para liberar a memoria.
@@ -18,9 +18,6 @@ static int** init_matrix(const std::string& data, int width, int height);
 
 //! Utilizado para liberar a memoria alocada por init_matrix().
 static void destroy_matrix(int** img, int height);
-
-//! Calcula o numero de componentes conexos na matriz usando vizinhanca-4.
-static int count_shapes(int** img, int width, int height);
 
 int main() {
 	using namespace std;
@@ -71,6 +68,8 @@ int main() {
 	return 0;
 }
 
+<<<<<<< HEAD
+=======
 
 static int count_shapes(int** img, int width, int height) {
 	// @TODO: aplicar o algoritmo de busca de formas na matriz
@@ -78,6 +77,7 @@ static int count_shapes(int** img, int width, int height) {
 }
 
 
+>>>>>>> 4ff435c98b180a477f97cc3cc421debd56a59314
 static int** init_matrix(const std::string& data, int width, int height) {
 	assert(width > 0);
 	assert(height > 0);
@@ -117,3 +117,4 @@ static void destroy_matrix(int** img, int height) {
 		delete[] img[i];
 	delete[] img;
 }
+
