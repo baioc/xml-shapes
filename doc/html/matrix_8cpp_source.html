@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabalho de Implementação I: Código-Fonte de matrix.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho de Implementação I
+   &#160;<span id="projectnumber">v1.0</span>
+   </div>
+   <div id="projectbrief">Validação de arquivo XML e contagem de Componentes Conexos de imagens binárias representadas nos mesmos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.15 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('matrix_8cpp_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">matrix.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="matrix_8cpp.html">Ir para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="matrix_8h.html">matrix.h</a>&quot;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="linked__queue_8h.html">linked_queue.h</a>&quot;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespacemath.html">   19</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacemath.html">math</a> {</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="namespacemath.html#ac47b11361b7d12063c2c2d3c3f030e6d">   21</a></span>&#160;<span class="keywordtype">int</span>** <a class="code" href="namespacemath.html#ac47b11361b7d12063c2c2d3c3f030e6d">matrix_init</a>(<span class="keywordtype">int</span> height, <span class="keywordtype">int</span> width) {</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    assert(width &gt; 0);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span>** M = <span class="keyword">new</span> <span class="keywordtype">int</span>*[height];</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; height; ++i) {</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        M[i] = <span class="keyword">new</span> <span class="keywordtype">int</span>[width];</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; width; ++j)</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            M[i][j] = 0;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> M;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespacemath.html#ab71def2c0ba5a16ca9b8b0ad9ed7034f">   32</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacemath.html#ab71def2c0ba5a16ca9b8b0ad9ed7034f">matrix_destroy</a>(<span class="keywordtype">int</span>** M, <span class="keywordtype">int</span> height) {</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; height; ++i)</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">delete</span>[] M[i];</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">delete</span>[] M;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="namespacemath.html#aacf8a030574da06fa612813bf3ffa705">   38</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="namespacemath.html#aacf8a030574da06fa612813bf3ffa705">count_shapes</a>(<span class="keywordtype">int</span>** E, <span class="keywordtype">int</span> height, <span class="keywordtype">int</span> width) {</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">using</span> pixel = std::pair&lt;int,int&gt;;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classstructures_1_1_linked_queue.html">structures::LinkedQueue&lt;pixel&gt;</a> paths;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">int</span> label = 1;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">auto</span> R = <a class="code" href="namespacemath.html#ac47b11361b7d12063c2c2d3c3f030e6d">matrix_init</a>(height, width);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// para cada pixel na matriz de entrada</span></div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; height; ++i) {</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; width; ++j) {</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="comment">// caso ele nao tenha sido rotulado e for diferente de zero</span></div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="comment">// entao temos um novo componente conexo</span></div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span> (!R[i][j] &amp;&amp; E[i][j]) {</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="comment">// rotula o pixel e o coloca na fila de processamento</span></div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                R[i][j] = label;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                paths.<a class="code" href="classstructures_1_1_linked_queue.html#a5027f4816daee604112244f85f3cac10">enqueue</a>({j,i});  <span class="comment">// (x,y)</span></div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="comment">// processa cada pixel conexo aos que estao na fila</span></div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">while</span> (!paths.<a class="code" href="classstructures_1_1_linked_queue.html#af956750d6053c0fcb41914615a1a3bfe">empty</a>()) {</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> p = paths.<a class="code" href="classstructures_1_1_linked_queue.html#aa4bc66721090abcbd77549fc53694de8">dequeue</a>();</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> x = p.first;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    <span class="keyword">const</span> <span class="keyword">auto</span> y = p.second;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    <span class="comment">// repete para a vizinhanca-4, quando existir, for</span></div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    <span class="comment">// diferente de zero e ainda nao tiver sido processada</span></div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    <span class="keywordflow">if</span> (x - 1 &gt;= 0 &amp;&amp; !R[y][x-1] &amp;&amp; E[y][x-1]) {</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                        R[y][x-1] = label;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                        paths.<a class="code" href="classstructures_1_1_linked_queue.html#a5027f4816daee604112244f85f3cac10">enqueue</a>({x-1,y});</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                    }</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                    <span class="keywordflow">if</span> (x + 1 &lt; width &amp;&amp; !R[y][x+1] &amp;&amp; E[y][x+1]) {</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                        R[y][x+1] = label;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        paths.<a class="code" href="classstructures_1_1_linked_queue.html#a5027f4816daee604112244f85f3cac10">enqueue</a>({x+1,y});</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    }</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    <span class="keywordflow">if</span> (y - 1 &gt;= 0 &amp;&amp; !R[y-1][x] &amp;&amp; E[y-1][x]) {</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        R[y-1][x] = label;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        paths.<a class="code" href="classstructures_1_1_linked_queue.html#a5027f4816daee604112244f85f3cac10">enqueue</a>({x,y-1});</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    }</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    <span class="keywordflow">if</span> (y + 1 &lt; height &amp;&amp; !R[y+1][x] &amp;&amp; E[y+1][x]) {</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                        R[y+1][x] = label;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        paths.<a class="code" href="classstructures_1_1_linked_queue.html#a5027f4816daee604112244f85f3cac10">enqueue</a>({x,y+1});</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    }</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                }</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                label++;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="namespacemath.html#ab71def2c0ba5a16ca9b8b0ad9ed7034f">matrix_destroy</a>(R, height);</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> label - 1;  <span class="comment">// retorna o ultimo rotulo efetivamente atribuido</span></div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}  <span class="comment">// namespace math</span></div><div class="ttc" id="namespacemath_html_ac47b11361b7d12063c2c2d3c3f030e6d"><div class="ttname"><a href="namespacemath.html#ac47b11361b7d12063c2c2d3c3f030e6d">math::matrix_init</a></div><div class="ttdeci">int ** matrix_init(int height, int width)</div><div class="ttdoc">Inicializa uma matriz com as dimensões especificadas.</div><div class="ttdef"><b>Definition:</b> <a href="matrix_8cpp_source.html#l00021">matrix.cpp:21</a></div></div>
+<div class="ttc" id="classstructures_1_1_linked_queue_html_aa4bc66721090abcbd77549fc53694de8"><div class="ttname"><a href="classstructures_1_1_linked_queue.html#aa4bc66721090abcbd77549fc53694de8">structures::LinkedQueue::dequeue</a></div><div class="ttdeci">T dequeue()</div><div class="ttdoc">Desenfileira.</div><div class="ttdef"><b>Definition:</b> <a href="linked__queue_8h_source.html#l00034">linked_queue.h:34</a></div></div>
+<div class="ttc" id="classstructures_1_1_linked_queue_html_a5027f4816daee604112244f85f3cac10"><div class="ttname"><a href="classstructures_1_1_linked_queue.html#a5027f4816daee604112244f85f3cac10">structures::LinkedQueue::enqueue</a></div><div class="ttdeci">void enqueue(const T &amp;data)</div><div class="ttdoc">Enfileira.</div><div class="ttdef"><b>Definition:</b> <a href="linked__queue_8h_source.html#l00025">linked_queue.h:25</a></div></div>
+<div class="ttc" id="namespacemath_html_ab71def2c0ba5a16ca9b8b0ad9ed7034f"><div class="ttname"><a href="namespacemath.html#ab71def2c0ba5a16ca9b8b0ad9ed7034f">math::matrix_destroy</a></div><div class="ttdeci">void matrix_destroy(int **M, int height)</div><div class="ttdoc">Destroi uma matriz e libera a memória que ocupava.</div><div class="ttdef"><b>Definition:</b> <a href="matrix_8cpp_source.html#l00032">matrix.cpp:32</a></div></div>
+<div class="ttc" id="namespacemath_html_aacf8a030574da06fa612813bf3ffa705"><div class="ttname"><a href="namespacemath.html#aacf8a030574da06fa612813bf3ffa705">math::count_shapes</a></div><div class="ttdeci">int count_shapes(int **E, int height, int width)</div><div class="ttdoc">Calcula o número de componentes conexos na matriz usando vizinhança-4.</div><div class="ttdef"><b>Definition:</b> <a href="matrix_8cpp_source.html#l00038">matrix.cpp:38</a></div></div>
+<div class="ttc" id="classstructures_1_1_linked_queue_html_af956750d6053c0fcb41914615a1a3bfe"><div class="ttname"><a href="classstructures_1_1_linked_queue.html#af956750d6053c0fcb41914615a1a3bfe">structures::LinkedQueue::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdoc">Confere se a Fila está vazia.</div><div class="ttdef"><b>Definition:</b> <a href="linked__queue_8h_source.html#l00076">linked_queue.h:76</a></div></div>
+<div class="ttc" id="matrix_8h_html"><div class="ttname"><a href="matrix_8h.html">matrix.h</a></div><div class="ttdoc">Declarações das funções de processamento de matrizes.</div></div>
+<div class="ttc" id="namespacemath_html"><div class="ttname"><a href="namespacemath.html">math</a></div><div class="ttdoc">Código de natureza matemática.</div><div class="ttdef"><b>Definition:</b> <a href="matrix_8cpp_source.html#l00019">matrix.cpp:19</a></div></div>
+<div class="ttc" id="classstructures_1_1_linked_queue_html"><div class="ttname"><a href="classstructures_1_1_linked_queue.html">structures::LinkedQueue</a></div><div class="ttdoc">Fila Encadeada.</div><div class="ttdef"><b>Definition:</b> <a href="linked__queue_8h_source.html#l00023">linked_queue.h:23</a></div></div>
+<div class="ttc" id="linked__queue_8h_html"><div class="ttname"><a href="linked__queue_8h.html">linked_queue.h</a></div><div class="ttdoc">Arquivo de declarações e interface da Fila Encadeada.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="matrix_8cpp.html">matrix.cpp</a></li>
+    <li class="footer">Gerado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
+</body>
+</html>

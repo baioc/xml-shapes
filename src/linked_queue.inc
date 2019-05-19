@@ -1,4 +1,13 @@
-// Copyright [2019] <Alek Frohlich, Gabriel B. Sant'Anna>
+/*!
+ * @file linked_queue.inc
+ * @author Alek Frohlich, Gabriel B. Sant'Anna
+ * @brief Implementações da Fila Encadeada.
+ * @version 1.0
+ * @date 2019-05-19
+ *
+ * @copyright Copyright (c) 2019
+ */
+
 
 template<typename T>
 LinkedQueue<T>::~LinkedQueue() {

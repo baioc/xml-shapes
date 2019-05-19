@@ -1,10 +1,21 @@
-// Copyright [2019] <Alek Frohlich, Gabriel B. Sant'Anna>
+/*!
+ * @file linked_stack.h
+ * @author Alek Frohlich, Gabriel B. Sant'Anna
+ * @brief Declarações e interface da Pilha Encadeada.
+ * @version 1.0
+ * @date 2019-05-19
+ *
+ * @copyright Copyright (c) 2019
+ */
+
 #ifndef STRUCTURES_LINKED_STACK_H
 #define STRUCTURES_LINKED_STACK_H
 
 #include <cstdint>
 #include <stdexcept>
 
+
+//! Estruturas de Dados.
 namespace structures {
 
 template<typename T>
@@ -20,7 +31,7 @@ class LinkedStack {
 	T pop();
 	//! Acessa o topo da Pilha.
 	T& top() const;
-	//! Confere se a Pilha esta vazia.
+	//! Confere se a Pilha está vazia.
 	bool empty() const;
 	//! Retorna o tamanho da Pilha.
 	std::size_t size() const;
@@ -40,11 +51,11 @@ class LinkedStack {
 		T& data() { return data_; }
 		//! getter const: dado.
 		const T& data() const { return data_; }
-		//! getter: proximo.
+		//! getter: próximo.
 		Node* next() { return next_; }
-		//! getter const: proximo.
+		//! getter const: próximo.
 		const Node* next() const { return next_; }
-		//! setter: proximo.
+		//! setter: próximo.
 		void next(Node* node) { next_ = node; }
 
 	 private:

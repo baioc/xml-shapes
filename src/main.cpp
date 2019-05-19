@@ -1,21 +1,46 @@
-// Copyright [2019] <Alek Frohlich, Gabriel B. Sant'Anna>
-/* libraries */
+/*!
+ * @file main.cpp
+ * @author Alek Frohlich, Gabriel B. Sant'Anna
+ * @brief Código do programa principal.
+ * @version 1.0
+ * @date 2019-05-19
+ *
+ * @copyright Copyright (c) 2019
+ */
+
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <sstream>
 #include <cctype>
 
-/* our includes */
 #include "xml.h"
 #include "linked_queue.h"
 #include "matrix.h"
 
 
-//! Inicializa uma matriz a partir da string que representa seus valores.
-//! Deve ser destruido com matrix_destroy() para liberar a memoria.
+/*!
+ * @brief Inicializa uma matriz de inteiros a partir da string que a representa.
+ *
+ * @param height Número de linhas da matriz.
+ * @param width Múmero de colunas da matriz.
+ * @param data String contendo os valores colocados na matriz. Whitespace é ignorado.
+ * @return int** Matriz gerada. Deve ser destruido com matrix_destroy() para liberar a memória alocada.
+ */
 static int** matrix_init(int height, int width, const std::string& data);
 
+/*!
+ * @brief Programa principal, realiza a leitura e processamento dos XMLs e conta
+ * o número de componentes conexos nas imagens contidas nos mesmos.
+ *
+ * Resultados de cada imagem são disponibilizados na saída padrão.
+ *
+ * @return int Algum dos seguintes códigos de erro:
+ * 0 quando não houver erros;
+ * 1 quando não foi possivel abrir o arquivo lido;
+ * -1 quando o XML lido é inválido;
+ * -2 quando alguma das imagens apresenta dimensões inválidas.
+ */
 int main() {
 	using namespace std;
 	using namespace xml;

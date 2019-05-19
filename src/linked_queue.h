@@ -1,10 +1,21 @@
-// Copyright [2019] <Alek Frohlich, Gabriel B. Sant'Anna>
+/*!
+ * @file linked_queue.h
+ * @author Alek Frohlich, Gabriel B. Sant'Anna
+ * @brief Arquivo de declarações e interface da Fila Encadeada.
+ * @version 1.0
+ * @date 2019-05-19
+ *
+ * @copyright Copyright (c) 2019
+ */
+
 #ifndef STRUCTURES_LINKED_QUEUE_H
 #define STRUCTURES_LINKED_QUEUE_H
 
 #include <cstdint>
 #include <stdexcept>
 
+
+//! Estruturas de Dados.
 namespace structures {
 
 template<typename T>
@@ -22,9 +33,9 @@ class LinkedQueue {
 	T dequeue();
 	//! Acessa a frente da Fila.
 	T& front() const;
-	//! Acessa o ultimo da Fila.
+	//! Acessa o último da Fila.
 	T& back() const;
-	//! Confere se a Fila esta vazia.
+	//! Confere se a Fila está vazia.
 	bool empty() const;
 	//! Retorna o tamanho da Fila.
 	std::size_t size() const;
@@ -42,11 +53,11 @@ class LinkedQueue {
 		T& data() { return data_; }
 		//! getter const: dado.
 		const T& data() const { return data_; }
-		//! getter: proximo.
+		//! getter: próximo.
 		Node* next() { return next_; }
-		//! getter const: proximo.
+		//! getter const: próximo.
 		const Node* next() const { return next_; }
-		//! setter: proximo.
+		//! setter: próximo.
 		void next(Node* node) { next_ = node; }
 
 	 private:

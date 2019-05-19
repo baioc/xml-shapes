@@ -1,0 +1,62 @@
+\subsection*{Objetivo}
+
+Este trabalho consiste na utilização de {\bfseries{estruturas de dados lineares}}, vistas até o momento no curso, e aplicação de conceitos de {\bfseries{pilha}} e/ou {\bfseries{fila}} para o processamento de arquivos {\bfseries{X\+ML}} contendo {\bfseries{imagens binárias}}. A implementação deverá resolver dois problemas (listados a seguir), e os resultados deverão ser formatados em saída padrão de tela de modo que possam ser automaticamente avaliados no V\+PL.
+
+\subsection*{Primeiro problema\+: validação de arquivo X\+ML}
+
+Para esta parte, pede-\/se exclusivamente a {\bfseries{verificação de aninhamento e fechamento das marcações}} (tags) no arquivo X\+ML (qualquer outra fonte de erro pode ser ignorada). Um identificador (por exemplo\+: {\ttfamily img}) constitui uma marcação entre os caracteres {\ttfamily $<$} e {\ttfamily $>$}, podendo ser de abertura (por exemplo\+: {\ttfamily $<$img$>$}) ou de fechamento com uma {\ttfamily /} antes do identificador (por exemplo\+: {\ttfamily $<$/img$>$}).
+
+Como apresentando em sala de aula, o algoritmo para resolver este problema é baseado em pilha ({\bfseries{L\+I\+FO}})\+:
+\begin{DoxyItemize}
+\item Ao encontrar uma marcação de abertura, empilha o identificador.
+\item Ao encontrar uma marcação de fechamento, verifica se o topo da pilha tem o mesmo identificador e desempilha. Aqui duas situações de erro podem ocorrer\+:
+\begin{DoxyItemize}
+\item Ao consultar o topo, o identificador é diferente (ou seja, uma marcação aberta deveria ter sido fechada antes);
+\item Ao consultar o topo, a pilha encontra-\/se vazia (ou seja, uma marcação é fechada sem que tenha sido aberta antes);
+\end{DoxyItemize}
+\item Ao finalizar a análise (parser) do arquivo, é necessário que a pilha esteja vazia. Caso não esteja, mais uma situação de erro ocorre, ou seja, há marcação sem fechamento.
+\end{DoxyItemize}
+
+\subsection*{Segundo problema\+: contagem de componentes conexos em imagens binárias representadas em arquivo X\+ML}
+
+Cada X\+ML contém imagens binárias, com altura e largura definidas respectivamente pelas marcações {\ttfamily $<$height$>$} e {\ttfamily $<$width$>$}, e sequência dos pixels com valores binários, de intensidade {\bfseries{0 para preto}} ou {\bfseries{1 para branco}}, em modo texto (embora fosse melhor gravar 1 byte a cada 8 bits, optou-\/se pelo modo texto por simplicidade), na marcação {\ttfamily $<$data$>$}.
+
+Para cada uma dessas imagens, pretende-\/se {\bfseries{calcular o número de $\ast$componentes conexos$\ast$$\ast$$\ast$ usando $\ast$$\ast$vizinhança-\/4}}. Para isso, seguem algumas definições importantes\+:
+\begin{DoxyItemize}
+\item A {\itshape {\bfseries{vizinhança-\/4}}} de um pixel na linha {\itshape x} e coluna {\itshape y}, ou seja, na coordenada $\ast$$\ast$(x, y)$\ast$$\ast$, é um conjunto de pixels adjacentes nas coordenadas\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{         (x, y+1)}
+\DoxyCodeLine{(x-1, y)          (x+1, y)}
+\DoxyCodeLine{         (x, y-1)}
+\end{DoxyCode}
+
+\item Um {\itshape {\bfseries{caminho}}} entre um um pixel {\itshape p\textsubscript{1}} e outro {\itshape p\textsubscript{n}} é uma sequência de pixels distintos $\ast$$\ast$$<$p\textsubscript{1},p\textsubscript{2},...,p\textsubscript{n}$>$$\ast$$\ast$, de modo que {\itshape p\textsubscript{i}} é {\bfseries{vizinho-\/4}} de {\itshape p\textsubscript{i+1}}; sendo i=1,2,...,n-\/1
+\item Um pixel {\itshape p} é {\itshape {\bfseries{conexo}}} a um pixel {\itshape q} se existir um {\bfseries{caminho}} de {\itshape p} a {\itshape q} (no contexto deste trabalho, só há interesse em pixels com intensidade 1, ou seja, brancos).
+\item Um {\itshape {\bfseries{componente conexo}}} é um {\itshape conjunto maximal} (não há outro maior que o contenha) {\itshape C} de pixels, no qual {\bfseries{quaisquer dois pixels}} selecionados deste conjunto {\itshape C} são {\bfseries{conexos}}.
+\end{DoxyItemize}
+
+Para a determinação da quantidade de componentes conexos, antes é necessário atribuir um {\bfseries{rótulo}} inteiro e crescente (1, 2, ...) para cada pixel de cada componente conexo. Conforme apresentado em aula, segue o algoritmo de rotulação ({\itshape labeling}) usando uma fila ({\bfseries{F\+I\+FO}})\+:
+\begin{DoxyItemize}
+\item Inicializar {\ttfamily rótulo} com 1.
+\item Criar uma matriz {\ttfamily R} de zeros com o mesmo tamanho da matriz de entrada {\ttfamily E} lida.
+\item Varrer a matriz de entrada {\ttfamily E}.
+\begin{DoxyItemize}
+\item Assim que encontrar o primeiro pixel de intensidade {\bfseries{1 ainda não visitado}} (igual a {\bfseries{0}} na mesma coordenada em {\ttfamily R}).
+\begin{DoxyItemize}
+\item Inserir {\ttfamily (x,y)} na fila.
+\item Na coordenada {\ttfamily (x,y)} da imagem {\ttfamily R}, atribuir o {\ttfamily rótulo} atual.
+\end{DoxyItemize}
+\item Enquanto a fila não estiver vazia\+:
+\begin{DoxyItemize}
+\item Remover {\ttfamily (x,y)} da fila.
+\item Inserir na fila as coordenadas dos quatro vizinhos que estejam dentro do domínio da imagem (não pode ter coordenada negativa ou superar o número de linhas ou de colunas), com intensidade {\bfseries{1}} (em {\ttfamily E}) e ainda não tenha sido visitado (igual a {\bfseries{0}} em {\ttfamily R}).
+\begin{DoxyItemize}
+\item Na coordenada de cada vizinho selecionado, na imagem {\ttfamily R}, atribuir o {\ttfamily rótulo} atual.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item Incrementar o {\ttfamily rótulo}.
+\end{DoxyItemize}
+\item O conteúdo final da matriz {\ttfamily R} corresponde ao resultado da rotulação. A {\bfseries{quantidade de componentes conexos}}, que é a resposta do segundo problema, é igual ao último e {\bfseries{maior {\itshape rótulo} atribuído}}.
+\end{DoxyItemize}
+
+Copyright \copyright{} 2019 $<$\href{https://github.com/alekfrohlich}{\texttt{ Alek Frohlich}}, \href{https://github.com/baioc}{\texttt{ Gabriel B. Sant\textquotesingle{}Anna}}$>$ 

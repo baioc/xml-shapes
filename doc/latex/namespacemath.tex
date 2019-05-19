@@ -1,17 +1,25 @@
-\hypertarget{namespacemath}{}\section{Refência do Namespace math}
+\hypertarget{namespacemath}{}\section{Referência ao namespace math}
 \label{namespacemath}\index{math@{math}}
+
+
+Código de natureza matemática.  
+
+
 \subsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
 int $\ast$$\ast$ \mbox{\hyperlink{namespacemath_ac47b11361b7d12063c2c2d3c3f030e6d}{matrix\+\_\+init}} (int height, int width)
-\begin{DoxyCompactList}\small\item\em Inicializa uma matriz como um array de height ponteiros para arrays com width ints. Deve ser destruido com \mbox{\hyperlink{namespacemath_ab71def2c0ba5a16ca9b8b0ad9ed7034f}{matrix\+\_\+destroy()}} para liberar a memoria. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Inicializa uma matriz com as dimensões especificadas. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespacemath_ab71def2c0ba5a16ca9b8b0ad9ed7034f}{matrix\+\_\+destroy}} (int $\ast$$\ast$M, int height)
-\begin{DoxyCompactList}\small\item\em Utilizado para liberar a memoria alocada por \mbox{\hyperlink{namespacemath_ac47b11361b7d12063c2c2d3c3f030e6d}{matrix\+\_\+init()}}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Destroi uma matriz e libera a memória que ocupava. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{namespacemath_aacf8a030574da06fa612813bf3ffa705}{count\+\_\+shapes}} (int $\ast$$\ast$E, int height, int width)
-\begin{DoxyCompactList}\small\item\em Calcula o numero de componentes conexos na matriz usando vizinhanca-\/4. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calcula o número de componentes conexos na matriz usando vizinhança-\/4. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Funções}
+\subsection{Descrição detalhada}
+Código de natureza matemática. 
+
+\subsection{Documentação das funções}
 \mbox{\Hypertarget{namespacemath_aacf8a030574da06fa612813bf3ffa705}\label{namespacemath_aacf8a030574da06fa612813bf3ffa705}} 
 \index{math@{math}!count\_shapes@{count\_shapes}}
 \index{count\_shapes@{count\_shapes}!math@{math}}
@@ -20,15 +28,31 @@ int \mbox{\hyperlink{namespacemath_aacf8a030574da06fa612813bf3ffa705}{count\+\_\
 
 
 
-Calcula o numero de componentes conexos na matriz usando vizinhanca-\/4. 
+Calcula o número de componentes conexos na matriz usando vizinhança-\/4. 
+
+Utiliza a técnica de rotulação de formas, para tal criando uma matriz temporária do mesmo tamanho da de entrada\+: este algoritmo utiliza memória na ordem O(w$\ast$h).
+
+Cada \char`\"{}pixel\char`\"{} é processado em uma fila (F\+I\+FO) de tamanho dinâmico, assim como seus vizinhos e assim por diante ate percorrer todos os caminhos do componente.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em E} & Matriz de entrada. \\
+\hline
+{\em height} & Número de linhas da matriz. \\
+\hline
+{\em width} & Número de colunas da matriz. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+int Número de componentes conexos (formas) encontrados. Zero implica que a matriz é nula/vazia. 
+\end{DoxyReturn}
+
+
+Definido na linha 38 do arquivo matrix.\+cpp.
 
 
 
-Definição na linha 29 do arquivo matrix.\+cpp.
-
-
-
-Referenciado(a) por main().
+Referenciado por main().
 
 \mbox{\Hypertarget{namespacemath_ab71def2c0ba5a16ca9b8b0ad9ed7034f}\label{namespacemath_ab71def2c0ba5a16ca9b8b0ad9ed7034f}} 
 \index{math@{math}!matrix\_destroy@{matrix\_destroy}}
@@ -38,15 +62,22 @@ Referenciado(a) por main().
 
 
 
-Utilizado para liberar a memoria alocada por \mbox{\hyperlink{namespacemath_ac47b11361b7d12063c2c2d3c3f030e6d}{matrix\+\_\+init()}}. 
+Destroi uma matriz e libera a memória que ocupava. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em M} & Matriz anteriormente inicializada por \mbox{\hyperlink{namespacemath_ac47b11361b7d12063c2c2d3c3f030e6d}{matrix\+\_\+init()}}. \\
+\hline
+{\em height} & Número de linhas da matriz. Deve ser o mesmo valor usado em sua inicialização. \\
+\hline
+\end{DoxyParams}
+
+
+Definido na linha 32 do arquivo matrix.\+cpp.
 
 
 
-Definição na linha 23 do arquivo matrix.\+cpp.
-
-
-
-Referenciado(a) por count\+\_\+shapes() e main().
+Referenciado por count\+\_\+shapes() e main().
 
 \mbox{\Hypertarget{namespacemath_ac47b11361b7d12063c2c2d3c3f030e6d}\label{namespacemath_ac47b11361b7d12063c2c2d3c3f030e6d}} 
 \index{math@{math}!matrix\_init@{matrix\_init}}
@@ -56,13 +87,25 @@ Referenciado(a) por count\+\_\+shapes() e main().
 
 
 
-Inicializa uma matriz como um array de height ponteiros para arrays com width ints. Deve ser destruido com \mbox{\hyperlink{namespacemath_ab71def2c0ba5a16ca9b8b0ad9ed7034f}{matrix\+\_\+destroy()}} para liberar a memoria. 
+Inicializa uma matriz com as dimensões especificadas. 
+
+A matriz é dada na forma de um array de arrays onde todos os elementos são inicializados com zero, uma matriz nula.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em height} & Número de linhas da matriz. \\
+\hline
+{\em width} & Número de colunas da matriz. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+int$\ast$$\ast$ Matriz gerada. Deve ser destruído com \mbox{\hyperlink{namespacemath_ab71def2c0ba5a16ca9b8b0ad9ed7034f}{matrix\+\_\+destroy()}} para liberar a memória alocada. 
+\end{DoxyReturn}
+
+
+Definido na linha 21 do arquivo matrix.\+cpp.
 
 
 
-Definição na linha 12 do arquivo matrix.\+cpp.
-
-
-
-Referenciado(a) por count\+\_\+shapes() e matrix\+\_\+init().
+Referenciado por count\+\_\+shapes() e matrix\+\_\+init().
 

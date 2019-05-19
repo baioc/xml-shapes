@@ -30,6 +30,8 @@ build: $(DEPS)
 
 docs:
 	doxygen
+	find doc/ -type f -print0 | xargs -0 sed -i 's/Ficheiro/Arquivo/g'
+	find doc/ -type f -print0 | xargs -0 sed -i 's/ficheiro/arquivo/g'
 
 clean:
 	rm *.out

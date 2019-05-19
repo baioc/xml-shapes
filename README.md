@@ -1,35 +1,12 @@
-Trabalho de Implementação I - Processamento de XML com imagens binárias
-====
-
-Copyright &copy; 2019 <[Alek Frohlich](https://github.com/alekfrohlich), [Gabriel B. Sant'Anna](https://github.com/baioc)>
-
-Veja a [documentação](doc/latex/refman.pdf).
+# Trabalho de Implementação I - Processamento de XML com imagens binárias
 
 ## Objetivo
 
 Este trabalho consiste na utilização de **estruturas de dados lineares**, vistas até o momento no curso, e aplicação de conceitos de **pilha** e/ou **fila** para o processamento de arquivos **XML** contendo **imagens binárias**.
 A implementação deverá resolver dois problemas (listados a seguir), e os resultados deverão ser formatados em saída padrão de tela de modo que possam ser automaticamente avaliados no VPL.
 
-## Materiais
 
-De modo a exemplificar as entradas para o seu programa, segue os arquivos XML utilizados no primeiro teste:
-
-- [dataset01.xml](https://moodle.ufsc.br/pluginfile.php/2735418/mod_resource/content/1/dataset01.xml)
-  - [visualização ampliada das imagens contidas no mesmo](https://moodle.ufsc.br/pluginfile.php/2735421/mod_resource/content/1/dataset01-images.png)
-- [dataset02.xml](https://moodle.ufsc.br/pluginfile.php/2753879/mod_resource/content/2/dataset02.xml)
-- [dataset03.xml](https://moodle.ufsc.br/pluginfile.php/2753881/mod_resource/content/2/dataset03.xml)
-- [dataset04.xml](https://moodle.ufsc.br/pluginfile.php/2753881/mod_resource/content/2/dataset04.xml)
-- [dataset05.xml](https://moodle.ufsc.br/pluginfile.php/2753881/mod_resource/content/2/dataset05.xml)
-- [dataset06.xml](https://moodle.ufsc.br/pluginfile.php/2753881/mod_resource/content/2/dataset06.xml)
-
-### Composição da nota:
-- Nota automática do [VPL](https://moodle.ufsc.br/mod/vpl/view.php?id=1798658)<sup>*</sup>: **70%**
-  * (*) Caso algum caso de teste não tenha sido bem sucedido, o aluno opcionalmente poderá defender sua solução no dia reservado à apresentação do Trabalho de Implementação I.
-- [Relatório em PDF](doc/latex/refman.pdf) (utilize [este link](https://moodle.ufsc.br/mod/assign/view.php?id=1798666) para a submissão) com todas as explicações pertinentes e documentação<sup>**</sup> do código: **30%**
-  * (**) Sugere-se a escrita no próprio código usando a notação [Doxygen](http://www.doxygen.nl/manual/docblocks.html) com a geração automática de [LaTeX](doc/latex/refman.tex)/[PDF](doc/latex/refman.pdf).
-
-
-# Primeiro problema: validação de arquivo XML
+## Primeiro problema: validação de arquivo XML
 
 Para esta parte, pede-se exclusivamente a **verificação de aninhamento e fechamento das marcações** (tags) no arquivo XML (qualquer outra fonte de erro pode ser ignorada).
 Um identificador (por exemplo: `img`) constitui uma marcação entre os caracteres `<` e `>`, podendo ser de abertura (por exemplo: `<img>`) ou de fechamento com uma `/` antes do identificador (por exemplo: `</img>`).
@@ -44,7 +21,7 @@ Aqui duas situações de erro podem ocorrer:
 Caso não esteja, mais uma situação de erro ocorre, ou seja, há marcação sem fechamento.
 
 
-# Segundo problema: contagem de componentes conexos em imagens binárias representadas em arquivo XML
+## Segundo problema: contagem de componentes conexos em imagens binárias representadas em arquivo XML
 
 Cada XML contém imagens binárias, com altura e largura definidas respectivamente pelas marcações `<height>` e `<width>`, e sequência dos pixels com valores binários, de intensidade **0 para preto** ou **1 para branco**, em modo texto (embora fosse melhor gravar 1 byte a cada 8 bits, optou-se pelo modo texto por simplicidade), na marcação `<data>`.
 
@@ -75,3 +52,6 @@ Conforme apresentado em aula, segue o algoritmo de rotulação (*labeling*) usan
   - Incrementar o `rótulo`.
 - O conteúdo final da matriz `R` corresponde ao resultado da rotulação.
 A **quantidade de componentes conexos**, que é a resposta do segundo problema, é igual ao último e **maior *rótulo* atribuído**.
+
+
+Copyright &copy; 2019 <[Alek Frohlich](https://github.com/alekfrohlich), [Gabriel B. Sant'Anna](https://github.com/baioc)>

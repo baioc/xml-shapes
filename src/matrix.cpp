@@ -1,4 +1,13 @@
-// Copyright [2019] <Alek Frohlich, Gabriel B. Sant'Anna>
+/*!
+ * @file matrix.cpp
+ * @author Alek Frohlich, Gabriel B. Sant'Anna
+ * @brief Implementação das funções de processamento de matrizes.
+ * @version 1.0
+ * @date 2019-05-19
+ *
+ * @copyright Copyright (c) 2019
+ */
+
 #include "matrix.h"
 
 #include <cassert>

@@ -1,18 +1,40 @@
-\hypertarget{xml_8h}{}\section{Referência do Arquivo src/xml.h}
-\label{xml_8h}\index{src/xml.h@{src/xml.h}}
+\hypertarget{xml_8h}{}\section{Referência ao arquivo xml.\+h}
+\label{xml_8h}\index{xml.h@{xml.h}}
+
+
+Declarações das funções de processamento de X\+ML.  
+
+
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$cstddef$>$}\newline
-\subsection*{$<$em$>$Namespaces$<$/em$>$}
+\subsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
  \mbox{\hyperlink{namespacexml}{xml}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Utilitários para processamento de X\+ML. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{namespacexml_a3ef8f381726c12dd6126676f94f0e8eb}{xml\+::balanced}} (const std\+::string \&xml)
 \begin{DoxyCompactList}\small\item\em Confere a validez da estrutura do X\+ML contido na string. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{namespacexml_a71783e2f9895997decf223259658b1d9}{xml\+::extract}} (const std\+::string \&origin, const std\+::string \&open, const std\+::string \&close, std\+::size\+\_\+t \&from)
-\begin{DoxyCompactList}\small\item\em Extrai substring de uma string entre dois delimitadores encontrados a partir de uma dada posicao. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Extrai, a partir de uma string original, a substring que existir entre o primeiro par de delimitadores encontrados a partir de uma dada posição. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{namespacexml_a0737f196962e22c2120336ba27909da1}{xml\+::extract}} (const std\+::string \&origin, const std\+::string \&open, const std\+::string \&close)
-\begin{DoxyCompactList}\small\item\em Extrai substring de uma string entre dois delimitadores. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Extrai, a partir de uma string original, a substring que existir entre o primeiro par de delimitadores encontrados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+Declarações das funções de processamento de X\+ML. 
+
+\begin{DoxyAuthor}{Autor}
+Alek Frohlich, Gabriel B. Sant\textquotesingle{}Anna 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versão}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2019-\/05-\/19
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}

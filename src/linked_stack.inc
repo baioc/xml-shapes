@@ -1,4 +1,13 @@
-// Copyright [2019] <Alek Frohlich, Gabriel B. Sant'Anna>
+/*!
+ * @file linked_stack.inc
+ * @author Alek Frohlich, Gabriel B. Sant'Anna
+ * @brief Implementações da Pilha Encadeada.
+ * @version 1.0
+ * @date 2019-05-19
+ *
+ * @copyright Copyright (c) 2019
+ */
+
 
 template<typename T>
 LinkedStack<T>::~LinkedStack() {

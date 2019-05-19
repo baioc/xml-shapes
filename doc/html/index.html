@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabalho de Implementação I: Trabalho de Implementação I - Processamento de XML com imagens binárias</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho de Implementação I
+   &#160;<span id="projectnumber">v1.0</span>
+   </div>
+   <div id="projectbrief">Validação de arquivo XML e contagem de Componentes Conexos de imagens binárias representadas nos mesmos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.15 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('index.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Trabalho de Implementação I - Processamento de XML com imagens binárias </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h2>Objetivo</h2>
+<p>Este trabalho consiste na utilização de <b>estruturas de dados lineares</b>, vistas até o momento no curso, e aplicação de conceitos de <b>pilha</b> e/ou <b>fila</b> para o processamento de arquivos <b>XML</b> contendo <b>imagens binárias</b>. A implementação deverá resolver dois problemas (listados a seguir), e os resultados deverão ser formatados em saída padrão de tela de modo que possam ser automaticamente avaliados no VPL.</p>
+<h2>Primeiro problema: validação de arquivo XML</h2>
+<p>Para esta parte, pede-se exclusivamente a <b>verificação de aninhamento e fechamento das marcações</b> (tags) no arquivo XML (qualquer outra fonte de erro pode ser ignorada). Um identificador (por exemplo: <code>img</code>) constitui uma marcação entre os caracteres <code>&lt;</code> e <code>&gt;</code>, podendo ser de abertura (por exemplo: <code>&lt;img&gt;</code>) ou de fechamento com uma <code>/</code> antes do identificador (por exemplo: <code>&lt;/img&gt;</code>).</p>
+<p>Como apresentando em sala de aula, o algoritmo para resolver este problema é baseado em pilha (<b>LIFO</b>):</p><ul>
+<li>Ao encontrar uma marcação de abertura, empilha o identificador.</li>
+<li>Ao encontrar uma marcação de fechamento, verifica se o topo da pilha tem o mesmo identificador e desempilha. Aqui duas situações de erro podem ocorrer:<ul>
+<li>Ao consultar o topo, o identificador é diferente (ou seja, uma marcação aberta deveria ter sido fechada antes);</li>
+<li>Ao consultar o topo, a pilha encontra-se vazia (ou seja, uma marcação é fechada sem que tenha sido aberta antes);</li>
+</ul>
+</li>
+<li>Ao finalizar a análise (parser) do arquivo, é necessário que a pilha esteja vazia. Caso não esteja, mais uma situação de erro ocorre, ou seja, há marcação sem fechamento.</li>
+</ul>
+<h2>Segundo problema: contagem de componentes conexos em imagens binárias representadas em arquivo XML</h2>
+<p>Cada XML contém imagens binárias, com altura e largura definidas respectivamente pelas marcações <code>&lt;height&gt;</code> e <code>&lt;width&gt;</code>, e sequência dos pixels com valores binários, de intensidade <b>0 para preto</b> ou <b>1 para branco</b>, em modo texto (embora fosse melhor gravar 1 byte a cada 8 bits, optou-se pelo modo texto por simplicidade), na marcação <code>&lt;data&gt;</code>.</p>
+<p>Para cada uma dessas imagens, pretende-se <b>calcular o número de *componentes conexos*** usando **vizinhança-4</b>. Para isso, seguem algumas definições importantes:</p><ul>
+<li>A <em><b>vizinhança-4</b></em> de um pixel na linha <em>x</em> e coluna <em>y</em>, ou seja, na coordenada **(x, y)**, é um conjunto de pixels adjacentes nas coordenadas: <div class="fragment"><div class="line">         (x, y+1)</div><div class="line">(x-1, y)          (x+1, y)</div><div class="line">         (x, y-1)</div></div><!-- fragment --></li>
+<li>Um <em><b>caminho</b></em> entre um um pixel <em>p<sub>1</sub></em> e outro <em>p<sub>n</sub></em> é uma sequência de pixels distintos **&lt;p<sub>1</sub>,p<sub>2</sub>,...,p<sub>n</sub>&gt;**, de modo que <em>p<sub>i</sub></em> é <b>vizinho-4</b> de <em>p<sub>i+1</sub></em>; sendo i=1,2,...,n-1</li>
+<li>Um pixel <em>p</em> é <em><b>conexo</b></em> a um pixel <em>q</em> se existir um <b>caminho</b> de <em>p</em> a <em>q</em> (no contexto deste trabalho, só há interesse em pixels com intensidade 1, ou seja, brancos).</li>
+<li>Um <em><b>componente conexo</b></em> é um <em>conjunto maximal</em> (não há outro maior que o contenha) <em>C</em> de pixels, no qual <b>quaisquer dois pixels</b> selecionados deste conjunto <em>C</em> são <b>conexos</b>.</li>
+</ul>
+<p>Para a determinação da quantidade de componentes conexos, antes é necessário atribuir um <b>rótulo</b> inteiro e crescente (1, 2, ...) para cada pixel de cada componente conexo. Conforme apresentado em aula, segue o algoritmo de rotulação (<em>labeling</em>) usando uma fila (<b>FIFO</b>):</p><ul>
+<li>Inicializar <code>rótulo</code> com 1.</li>
+<li>Criar uma matriz <code>R</code> de zeros com o mesmo tamanho da matriz de entrada <code>E</code> lida.</li>
+<li>Varrer a matriz de entrada <code>E</code>.<ul>
+<li>Assim que encontrar o primeiro pixel de intensidade <b>1 ainda não visitado</b> (igual a <b>0</b> na mesma coordenada em <code>R</code>).<ul>
+<li>Inserir <code>(x,y)</code> na fila.</li>
+<li>Na coordenada <code>(x,y)</code> da imagem <code>R</code>, atribuir o <code>rótulo</code> atual.</li>
+</ul>
+</li>
+<li>Enquanto a fila não estiver vazia:<ul>
+<li>Remover <code>(x,y)</code> da fila.</li>
+<li>Inserir na fila as coordenadas dos quatro vizinhos que estejam dentro do domínio da imagem (não pode ter coordenada negativa ou superar o número de linhas ou de colunas), com intensidade <b>1</b> (em <code>E</code>) e ainda não tenha sido visitado (igual a <b>0</b> em <code>R</code>).<ul>
+<li>Na coordenada de cada vizinho selecionado, na imagem <code>R</code>, atribuir o <code>rótulo</code> atual.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Incrementar o <code>rótulo</code>.</li>
+</ul>
+</li>
+<li>O conteúdo final da matriz <code>R</code> corresponde ao resultado da rotulação. A <b>quantidade de componentes conexos</b>, que é a resposta do segundo problema, é igual ao último e <b>maior <em>rótulo</em> atribuído</b>.</li>
+</ul>
+<p>Copyright &copy; 2019 &lt;<a href="https://github.com/alekfrohlich">Alek Frohlich</a>, <a href="https://github.com/baioc">Gabriel B. Sant'Anna</a>&gt; </p>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Gerado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
+</body>
+</html>

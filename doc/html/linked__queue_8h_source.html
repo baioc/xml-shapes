@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabalho de Implementação I: Código-Fonte de linked_queue.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho de Implementação I
+   &#160;<span id="projectnumber">v1.0</span>
+   </div>
+   <div id="projectbrief">Validação de arquivo XML e contagem de Componentes Conexos de imagens binárias representadas nos mesmos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.15 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('linked__queue_8h_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">linked_queue.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="linked__queue_8h.html">Ir para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef STRUCTURES_LINKED_QUEUE_H</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define STRUCTURES_LINKED_QUEUE_H</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classstructures_1_1_linked_queue.html#ab08efd98f87a1dcd7a2c40588778cb80">   14</a></span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classstructures_1_1_linked_queue.html#a7fd13289965085b6224d3c87e9555a1a">   19</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacestructures.html">structures</a> {</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classstructures_1_1_linked_queue.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classstructures_1_1_linked_queue.html">LinkedQueue</a> {</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; <span class="keyword">public</span>:</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classstructures_1_1_linked_queue.html#ab08efd98f87a1dcd7a2c40588778cb80">~LinkedQueue</a>();</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classstructures_1_1_linked_queue.html#a7fd13289965085b6224d3c87e9555a1a">clear</a>();</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classstructures_1_1_linked_queue.html#a5027f4816daee604112244f85f3cac10">enqueue</a>(<span class="keyword">const</span> T&amp; data);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    T <a class="code" href="classstructures_1_1_linked_queue.html#aa4bc66721090abcbd77549fc53694de8">dequeue</a>();</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    T&amp; <a class="code" href="classstructures_1_1_linked_queue.html#aa6d2f0263b390193d2aae72499aa00b4">front</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    T&amp; <a class="code" href="classstructures_1_1_linked_queue.html#a194d5842787ddffafecfb44bd14e8d9d">back</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classstructures_1_1_linked_queue.html#af956750d6053c0fcb41914615a1a3bfe">empty</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    std::size_t <a class="code" href="classstructures_1_1_linked_queue.html#a97af1a092fe5f7f15182bf93d1bc396d">size</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; <span class="keyword">private</span>:</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">class </span>Node {</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;     <span class="keyword">public</span>:</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">explicit</span> Node(<span class="keyword">const</span> T&amp; data) : data_{data} {}</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">explicit</span> Node(<span class="keyword">const</span> T&amp; data, Node* next) : data_{data}, next_{next} {}</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        T&amp; data() { <span class="keywordflow">return</span> data_; }</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">const</span> T&amp; data()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> data_; }</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        Node* next() { <span class="keywordflow">return</span> next_; }</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">const</span> Node* next()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> next_; }</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> next(Node* node) { next_ = node; }</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;     <span class="keyword">private</span>:</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        T data_;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        Node* next_{<span class="keyword">nullptr</span>};</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    };</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classstructures_1_1_linked_queue.html#a194d5842787ddffafecfb44bd14e8d9d">   68</a></span>&#160;    Node* head_{<span class="keyword">nullptr</span>};  </div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    Node* tail_{<span class="keyword">nullptr</span>};  </div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    std::size_t size_{0u};  </div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">// implementacao incluida aqui</span></div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="linked__queue_8inc.html">linked_queue.inc</a>&quot;</span></div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classstructures_1_1_linked_queue.html#af956750d6053c0fcb41914615a1a3bfe">   76</a></span>&#160;}  <span class="comment">// namespace structures</span></div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classstructures_1_1_linked_queue_html_aa4bc66721090abcbd77549fc53694de8"><div class="ttname"><a href="classstructures_1_1_linked_queue.html#aa4bc66721090abcbd77549fc53694de8">structures::LinkedQueue::dequeue</a></div><div class="ttdeci">T dequeue()</div><div class="ttdoc">Desenfileira.</div><div class="ttdef"><b>Definition:</b> <a href="linked__queue_8h_source.html#l00034">linked_queue.h:34</a></div></div>
+<div class="ttc" id="classstructures_1_1_linked_queue_html_ab08efd98f87a1dcd7a2c40588778cb80"><div class="ttname"><a href="classstructures_1_1_linked_queue.html#ab08efd98f87a1dcd7a2c40588778cb80">structures::LinkedQueue::~LinkedQueue</a></div><div class="ttdeci">~LinkedQueue()</div><div class="ttdoc">Destrutor.</div><div class="ttdef"><b>Definition:</b> <a href="linked__queue_8h_source.html#l00014">linked_queue.h:14</a></div></div>
+<div class="ttc" id="classstructures_1_1_linked_queue_html_a5027f4816daee604112244f85f3cac10"><div class="ttname"><a href="classstructures_1_1_linked_queue.html#a5027f4816daee604112244f85f3cac10">structures::LinkedQueue::enqueue</a></div><div class="ttdeci">void enqueue(const T &amp;data)</div><div class="ttdoc">Enfileira.</div><div class="ttdef"><b>Definition:</b> <a href="linked__queue_8h_source.html#l00025">linked_queue.h:25</a></div></div>
+<div class="ttc" id="namespacestructures_html"><div class="ttname"><a href="namespacestructures.html">structures</a></div><div class="ttdoc">Estruturas de Dados.</div><div class="ttdef"><b>Definition:</b> <a href="linked__queue_8h_source.html#l00019">linked_queue.h:19</a></div></div>
+<div class="ttc" id="classstructures_1_1_linked_queue_html_a7fd13289965085b6224d3c87e9555a1a"><div class="ttname"><a href="classstructures_1_1_linked_queue.html#a7fd13289965085b6224d3c87e9555a1a">structures::LinkedQueue::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Limpa a Fila.</div><div class="ttdef"><b>Definition:</b> <a href="linked__queue_8h_source.html#l00019">linked_queue.h:19</a></div></div>
+<div class="ttc" id="classstructures_1_1_linked_queue_html_af956750d6053c0fcb41914615a1a3bfe"><div class="ttname"><a href="classstructures_1_1_linked_queue.html#af956750d6053c0fcb41914615a1a3bfe">structures::LinkedQueue::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdoc">Confere se a Fila está vazia.</div><div class="ttdef"><b>Definition:</b> <a href="linked__queue_8h_source.html#l00076">linked_queue.h:76</a></div></div>
+<div class="ttc" id="classstructures_1_1_linked_queue_html"><div class="ttname"><a href="classstructures_1_1_linked_queue.html">structures::LinkedQueue</a></div><div class="ttdoc">Fila Encadeada.</div><div class="ttdef"><b>Definition:</b> <a href="linked__queue_8h_source.html#l00023">linked_queue.h:23</a></div></div>
+<div class="ttc" id="classstructures_1_1_linked_queue_html_a97af1a092fe5f7f15182bf93d1bc396d"><div class="ttname"><a href="classstructures_1_1_linked_queue.html#a97af1a092fe5f7f15182bf93d1bc396d">structures::LinkedQueue::size</a></div><div class="ttdeci">std::size_t size() const</div><div class="ttdoc">Retorna o tamanho da Fila.</div><div class="ttdef"><b>Definition:</b> <a href="linked__queue_8h_source.html#l00081">linked_queue.h:81</a></div></div>
+<div class="ttc" id="classstructures_1_1_linked_queue_html_a194d5842787ddffafecfb44bd14e8d9d"><div class="ttname"><a href="classstructures_1_1_linked_queue.html#a194d5842787ddffafecfb44bd14e8d9d">structures::LinkedQueue::back</a></div><div class="ttdeci">T &amp; back() const</div><div class="ttdoc">Acessa o último da Fila.</div><div class="ttdef"><b>Definition:</b> <a href="linked__queue_8h_source.html#l00068">linked_queue.h:68</a></div></div>
+<div class="ttc" id="linked__queue_8inc_html"><div class="ttname"><a href="linked__queue_8inc.html">linked_queue.inc</a></div><div class="ttdoc">Implementações da Fila Encadeada.</div></div>
+<div class="ttc" id="classstructures_1_1_linked_queue_html_aa6d2f0263b390193d2aae72499aa00b4"><div class="ttname"><a href="classstructures_1_1_linked_queue.html#aa6d2f0263b390193d2aae72499aa00b4">structures::LinkedQueue::front</a></div><div class="ttdeci">T &amp; front() const</div><div class="ttdoc">Acessa a frente da Fila.</div><div class="ttdef"><b>Definition:</b> <a href="linked__queue_8h_source.html#l00060">linked_queue.h:60</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="linked__queue_8h.html">linked_queue.h</a></li>
+    <li class="footer">Gerado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
+</body>
+</html>
