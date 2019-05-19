@@ -1,0 +1,16 @@
+\hypertarget{matrix_8h}{}\section{Referência do Arquivo src/matrix.h}
+\label{matrix_8h}\index{src/matrix.h@{src/matrix.h}}
+\subsection*{$<$em$>$Namespaces$<$/em$>$}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacemath}{math}}
+\end{DoxyCompactItemize}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+int $\ast$$\ast$ \mbox{\hyperlink{namespacemath_ac47b11361b7d12063c2c2d3c3f030e6d}{math\+::matrix\+\_\+init}} (int height, int width)
+\begin{DoxyCompactList}\small\item\em Inicializa uma matriz como um array de height ponteiros para arrays com width ints. Deve ser destruido com \mbox{\hyperlink{namespacemath_ab71def2c0ba5a16ca9b8b0ad9ed7034f}{matrix\+\_\+destroy()}} para liberar a memoria. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacemath_ab71def2c0ba5a16ca9b8b0ad9ed7034f}{math\+::matrix\+\_\+destroy}} (int $\ast$$\ast$M, int height)
+\begin{DoxyCompactList}\small\item\em Utilizado para liberar a memoria alocada por \mbox{\hyperlink{namespacemath_ac47b11361b7d12063c2c2d3c3f030e6d}{matrix\+\_\+init()}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacemath_aacf8a030574da06fa612813bf3ffa705}{math\+::count\+\_\+shapes}} (int $\ast$$\ast$E, int height, int width)
+\begin{DoxyCompactList}\small\item\em Calcula o numero de componentes conexos na matriz usando vizinhanca-\/4. \end{DoxyCompactList}\end{DoxyCompactItemize}

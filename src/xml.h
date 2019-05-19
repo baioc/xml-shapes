@@ -5,6 +5,7 @@
 #include <string>
 #include <cstddef>
 
+
 namespace xml {
 
 //! Confere a validez da estrutura do XML contido na string.

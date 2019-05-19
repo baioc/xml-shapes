@@ -5,31 +5,21 @@
 #include <fstream>
 #include <sstream>
 #include <cctype>
-#include <cassert>
-#include <utility>
 
 /* our includes */
 #include "xml.h"
 #include "linked_queue.h"
+#include "matrix.h"
 
-
-//! Inicializa uma matriz como um array de height ponteiros para arrays com width ints.
-//! Deve ser destruido com matrix_destroy() para liberar a memoria.
-static int** matrix_init(int height, int width);
 
 //! Inicializa uma matriz a partir da string que representa seus valores.
 //! Deve ser destruido com matrix_destroy() para liberar a memoria.
 static int** matrix_init(int height, int width, const std::string& data);
 
-//! Utilizado para liberar a memoria alocada por matrix_init().
-static void matrix_destroy(int** M, int height);
-
-//! Calcula o numero de componentes conexos na matriz usando vizinhanca-4.
-static int count_shapes(int** E, int height, int width);
-
 int main() {
 	using namespace std;
 	using namespace xml;
+	using namespace math;
 
 	// le o nome do arquivo
 	char xmlfilename[100];
@@ -77,77 +67,8 @@ int main() {
 }
 
 
-static int count_shapes(int** E, int height, int width) {
-	structures::LinkedQueue<std::pair<int,int>> paths;
-	int shapes = 1;
-	auto R = matrix_init(height, width);
-
-	// para cada pixel na matriz de entrada
-	for (int i = 0; i < height; ++i) {
-		for (int j = 0; j < width; ++j) {
-			// caso ele nao tenha sido rotulado e for diferente de zero
-			// entao temos um novo componente conexo
-			if (!R[i][j] && E[i][j]) {
-				// rotula o pixel e o coloca na fila de processamento
-				R[i][j] = shapes;
-				paths.enqueue({j,i}); // (x,y)
-
-				// processa cada pixel conexo aos que estao na fila
-				while (!paths.empty()) {
-					const auto pos = paths.dequeue();
-					const auto x = pos.first;
-					const auto y = pos.second;
-
-					// repete para a vizinhanca-4, quando existir, for
-					// diferente de zero e ainda nao tiver sido processada
-					if (x > 0 && !R[y][x-1] && E[y][x-1]) {
-						R[y][x-1] = shapes;
-						paths.enqueue({x-1,y});
-					}
-					if (x + 1 < width && !R[y][x+1] && E[y][x+1]) {
-						R[y][x+1] = shapes;
-						paths.enqueue({x+1,y});
-					}
-					if (y > 0 && !R[y-1][x] && E[y-1][x]) {
-						R[y-1][x] = shapes;
-						paths.enqueue({x,y-1});
-					}
-					if (y + 1 < height && !R[y+1][x] && E[y+1][x]) {
-						R[y+1][x] = shapes;
-						paths.enqueue({x,y+1});
-					}
-				}
-
-				shapes++;
-			}
-		}
-	}
-
-	matrix_destroy(R, height);
-	return shapes-1; // retorna o ultimo rotulo efetivamente atribuido
-}
-
-
-static int** matrix_init(int height, int width) {
-	assert(height > 0);
-	assert(width > 0);
-	int** M = new int*[height];
-	for (int i = 0; i < height; ++i) {
-		M[i] = new int[width];
-		for (int j = 0; j < width; ++j)
-			M[i][j] = 0;
-	}
-	return M;
-}
-
-static void matrix_destroy(int** M, int height) {
-	for (int i = 0; i < height; ++i)
-		delete[] M[i];
-	delete[] M;
-}
-
 static int** matrix_init(int height, int width, const std::string& data) {
-	auto img = matrix_init(height, width);
+	auto img = math::matrix_init(height, width);
 
 	int i = 0, j = 0;
 	for (const auto& c : data) {
@@ -156,7 +77,7 @@ static int** matrix_init(int height, int width, const std::string& data) {
 			continue;
 
 		// preenche a matriz
-		img[i][j] = c - '0'; // conversao de char para int
+		img[i][j] = c - '0';  // conversao de char para int
 
 		// confere se chegou ao fim de uma linha
 		if (++j >= width) {
