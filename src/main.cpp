@@ -63,7 +63,7 @@ int main() {
 		// processamento da imagem propriamente dita
 		auto frame = init_matrix(extract(img, "<data>", "</data>"), height, width);
 		cout << name << ' ' << count_shapes(frame, width, height) << '\n';
-		destroy_matrix(frame, height);
+		destroy_matrix(frame, width);
 	}
 
 	return 0;
@@ -103,8 +103,8 @@ static int** init_matrix(const std::string& data, int width, int height) {
 	return img;
 }
 
-static void destroy_matrix(int** img, int height) {
-	for (int i = 0; i < height; ++i)
+static void destroy_matrix(int** img, int width) {
+	for (int i = 0; i < width; ++i)
 		delete[] img[i];
 	delete[] img;
 }
