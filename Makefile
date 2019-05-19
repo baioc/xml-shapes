@@ -30,9 +30,6 @@ build: $(DEPS)
 
 docs:
 	doxygen
-	cd doc/latex
-	make
-	cd ../..
 
 clean:
 	rm *.out

@@ -4,29 +4,32 @@
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
-{\ttfamily \#include $<$algorithm$>$}\newline
 {\ttfamily \#include $<$cctype$>$}\newline
 {\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
 {\ttfamily \#include \char`\"{}xml.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}linked\+\_\+queue.\+h\char`\"{}}\newline
 \subsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
-static int $\ast$$\ast$ \mbox{\hyperlink{main_8cpp_a505d16473beb9400f5a036525b7d822d}{init\+\_\+matrix}} (const std\+::string \&data, int width, int height)
-\begin{DoxyCompactList}\small\item\em Inicializa uma matriz como um array de height ponteiros para arrays com width ints. Deve ser destruido com \mbox{\hyperlink{main_8cpp_a9af09d5d2cc4430d1002cd2661018448}{destroy\+\_\+matrix()}} para liberar a memoria. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8cpp_a9af09d5d2cc4430d1002cd2661018448}{destroy\+\_\+matrix}} (int $\ast$$\ast$img, int height)
-\begin{DoxyCompactList}\small\item\em Utilizado para liberar a memoria alocada por \mbox{\hyperlink{main_8cpp_a505d16473beb9400f5a036525b7d822d}{init\+\_\+matrix()}}. \end{DoxyCompactList}\item 
-static int \mbox{\hyperlink{main_8cpp_a69968acae29bc7e7a8f4cf21940a4fbf}{count\+\_\+shapes}} (int $\ast$$\ast$img, int width, int height)
+static int $\ast$$\ast$ \mbox{\hyperlink{main_8cpp_a4f5008e2b4858fabd71cf4f29c438866}{matrix\+\_\+init}} (int height, int width)
+\begin{DoxyCompactList}\small\item\em Inicializa uma matriz como um array de height ponteiros para arrays com width ints. Deve ser destruido com \mbox{\hyperlink{main_8cpp_a2633e720614aaf8c70cc802c81d2c553}{matrix\+\_\+destroy()}} para liberar a memoria. \end{DoxyCompactList}\item 
+static int $\ast$$\ast$ \mbox{\hyperlink{main_8cpp_a67ba940a1d070837d39a5e54b560ea49}{matrix\+\_\+init}} (int height, int width, const std\+::string \&data)
+\begin{DoxyCompactList}\small\item\em Inicializa uma matriz a partir da string que representa seus valores. Deve ser destruido com \mbox{\hyperlink{main_8cpp_a2633e720614aaf8c70cc802c81d2c553}{matrix\+\_\+destroy()}} para liberar a memoria. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{main_8cpp_a2633e720614aaf8c70cc802c81d2c553}{matrix\+\_\+destroy}} (int $\ast$$\ast$M, int height)
+\begin{DoxyCompactList}\small\item\em Utilizado para liberar a memoria alocada por \mbox{\hyperlink{main_8cpp_a4f5008e2b4858fabd71cf4f29c438866}{matrix\+\_\+init()}}. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{main_8cpp_a9b312967ae6eff7534b10c4616cb764c}{count\+\_\+shapes}} (int $\ast$$\ast$E, int height, int width)
 \begin{DoxyCompactList}\small\item\em Calcula o numero de componentes conexos na matriz usando vizinhanca-\/4. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 \end{DoxyCompactItemize}
 
 
 \subsection{Funções}
-\mbox{\Hypertarget{main_8cpp_a69968acae29bc7e7a8f4cf21940a4fbf}\label{main_8cpp_a69968acae29bc7e7a8f4cf21940a4fbf}} 
+\mbox{\Hypertarget{main_8cpp_a9b312967ae6eff7534b10c4616cb764c}\label{main_8cpp_a9b312967ae6eff7534b10c4616cb764c}} 
 \index{main.cpp@{main.cpp}!count\_shapes@{count\_shapes}}
 \index{count\_shapes@{count\_shapes}!main.cpp@{main.cpp}}
 \subsubsection{\texorpdfstring{count\_shapes()}{count\_shapes()}}
-{\footnotesize\ttfamily static int count\+\_\+shapes (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{img,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static int count\+\_\+shapes (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{E,  }\item[{int}]{height,  }\item[{int}]{width }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -34,43 +37,7 @@ Calcula o numero de componentes conexos na matriz usando vizinhanca-\/4.
 
 
 
-Definição na linha 75 do arquivo main.\+cpp.
-
-
-
-Referenciado(a) por main().
-
-\mbox{\Hypertarget{main_8cpp_a9af09d5d2cc4430d1002cd2661018448}\label{main_8cpp_a9af09d5d2cc4430d1002cd2661018448}} 
-\index{main.cpp@{main.cpp}!destroy\_matrix@{destroy\_matrix}}
-\index{destroy\_matrix@{destroy\_matrix}!main.cpp@{main.cpp}}
-\subsubsection{\texorpdfstring{destroy\_matrix()}{destroy\_matrix()}}
-{\footnotesize\ttfamily static void destroy\+\_\+matrix (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{img,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Utilizado para liberar a memoria alocada por \mbox{\hyperlink{main_8cpp_a505d16473beb9400f5a036525b7d822d}{init\+\_\+matrix()}}. 
-
-
-
-Definição na linha 115 do arquivo main.\+cpp.
-
-
-
-Referenciado(a) por main().
-
-\mbox{\Hypertarget{main_8cpp_a505d16473beb9400f5a036525b7d822d}\label{main_8cpp_a505d16473beb9400f5a036525b7d822d}} 
-\index{main.cpp@{main.cpp}!init\_matrix@{init\_matrix}}
-\index{init\_matrix@{init\_matrix}!main.cpp@{main.cpp}}
-\subsubsection{\texorpdfstring{init\_matrix()}{init\_matrix()}}
-{\footnotesize\ttfamily static int $\ast$$\ast$ init\+\_\+matrix (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{data,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Inicializa uma matriz como um array de height ponteiros para arrays com width ints. Deve ser destruido com \mbox{\hyperlink{main_8cpp_a9af09d5d2cc4430d1002cd2661018448}{destroy\+\_\+matrix()}} para liberar a memoria. 
-
-
-
-Definição na linha 81 do arquivo main.\+cpp.
+Definição na linha 80 do arquivo main.\+cpp.
 
 
 
@@ -84,5 +51,55 @@ Referenciado(a) por main().
 
 
 
-Definição na linha 25 do arquivo main.\+cpp.
+Definição na linha 30 do arquivo main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a2633e720614aaf8c70cc802c81d2c553}\label{main_8cpp_a2633e720614aaf8c70cc802c81d2c553}} 
+\index{main.cpp@{main.cpp}!matrix\_destroy@{matrix\_destroy}}
+\index{matrix\_destroy@{matrix\_destroy}!main.cpp@{main.cpp}}
+\subsubsection{\texorpdfstring{matrix\_destroy()}{matrix\_destroy()}}
+{\footnotesize\ttfamily static void matrix\+\_\+destroy (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{M,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Utilizado para liberar a memoria alocada por \mbox{\hyperlink{main_8cpp_a4f5008e2b4858fabd71cf4f29c438866}{matrix\+\_\+init()}}. 
+
+
+
+Definição na linha 143 do arquivo main.\+cpp.
+
+
+
+Referenciado(a) por count\+\_\+shapes() e main().
+
+\mbox{\Hypertarget{main_8cpp_a4f5008e2b4858fabd71cf4f29c438866}\label{main_8cpp_a4f5008e2b4858fabd71cf4f29c438866}} 
+\index{main.cpp@{main.cpp}!matrix\_init@{matrix\_init}}
+\index{matrix\_init@{matrix\_init}!main.cpp@{main.cpp}}
+\subsubsection{\texorpdfstring{matrix\_init()}{matrix\_init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static int $\ast$$\ast$ matrix\+\_\+init (\begin{DoxyParamCaption}\item[{int}]{height,  }\item[{int}]{width }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Inicializa uma matriz como um array de height ponteiros para arrays com width ints. Deve ser destruido com \mbox{\hyperlink{main_8cpp_a2633e720614aaf8c70cc802c81d2c553}{matrix\+\_\+destroy()}} para liberar a memoria. 
+
+
+
+Definição na linha 131 do arquivo main.\+cpp.
+
+
+
+Referenciado(a) por count\+\_\+shapes(), main() e matrix\+\_\+init().
+
+\mbox{\Hypertarget{main_8cpp_a67ba940a1d070837d39a5e54b560ea49}\label{main_8cpp_a67ba940a1d070837d39a5e54b560ea49}} 
+\index{main.cpp@{main.cpp}!matrix\_init@{matrix\_init}}
+\index{matrix\_init@{matrix\_init}!main.cpp@{main.cpp}}
+\subsubsection{\texorpdfstring{matrix\_init()}{matrix\_init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static int $\ast$$\ast$ matrix\+\_\+init (\begin{DoxyParamCaption}\item[{int}]{height,  }\item[{int}]{width,  }\item[{const std\+::string \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Inicializa uma matriz a partir da string que representa seus valores. Deve ser destruido com \mbox{\hyperlink{main_8cpp_a2633e720614aaf8c70cc802c81d2c553}{matrix\+\_\+destroy()}} para liberar a memoria. 
+
+
+
+Definição na linha 149 do arquivo main.\+cpp.
 

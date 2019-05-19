@@ -24,8 +24,6 @@
 
   \item {dequeue}
     \subitem {structures::LinkedQueue$<$ T $>$}, \hyperpage{10}
-  \item {destroy\_matrix}
-    \subitem {main.cpp}, \hyperpage{16}
 
   \indexspace
 
@@ -44,18 +42,17 @@
 
   \indexspace
 
-  \item {init\_matrix}
-    \subitem {main.cpp}, \hyperpage{17}
-
-  \indexspace
-
   \item {main}
-    \subitem {main.cpp}, \hyperpage{17}
+    \subitem {main.cpp}, \hyperpage{16}
   \item {main.cpp}
     \subitem {count\_shapes}, \hyperpage{16}
-    \subitem {destroy\_matrix}, \hyperpage{16}
-    \subitem {init\_matrix}, \hyperpage{17}
-    \subitem {main}, \hyperpage{17}
+    \subitem {main}, \hyperpage{16}
+    \subitem {matrix\_destroy}, \hyperpage{17}
+    \subitem {matrix\_init}, \hyperpage{17}
+  \item {matrix\_destroy}
+    \subitem {main.cpp}, \hyperpage{17}
+  \item {matrix\_init}
+    \subitem {main.cpp}, \hyperpage{17}
 
   \indexspace
 
@@ -74,7 +71,7 @@
   \item {src/linked\_stack.h}, \hyperpage{15}
   \item {src/linked\_stack.inc}, \hyperpage{16}
   \item {src/main.cpp}, \hyperpage{16}
-  \item {src/xml.cpp}, \hyperpage{17}
+  \item {src/xml.cpp}, \hyperpage{18}
   \item {src/xml.h}, \hyperpage{18}
   \item {structures}, \hyperpage{7}
   \item {structures::LinkedQueue$<$ T $>$}, \hyperpage{9}

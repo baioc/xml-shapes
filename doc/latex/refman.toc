@@ -45,9 +45,10 @@
 \contentsline {section}{\numberline {6.5}Refer\IeC {\^e}ncia do Arquivo src/main.cpp}{16}{section.6.5}% 
 \contentsline {subsection}{\numberline {6.5.1}Fun\IeC {\c c}\IeC {\~o}es}{16}{subsection.6.5.1}% 
 \contentsline {subsubsection}{\numberline {6.5.1.1}count\_shapes()}{16}{subsubsection.6.5.1.1}% 
-\contentsline {subsubsection}{\numberline {6.5.1.2}destroy\_matrix()}{17}{subsubsection.6.5.1.2}% 
-\contentsline {subsubsection}{\numberline {6.5.1.3}init\_matrix()}{17}{subsubsection.6.5.1.3}% 
-\contentsline {subsubsection}{\numberline {6.5.1.4}main()}{17}{subsubsection.6.5.1.4}% 
-\contentsline {section}{\numberline {6.6}Refer\IeC {\^e}ncia do Arquivo src/xml.cpp}{17}{section.6.6}% 
+\contentsline {subsubsection}{\numberline {6.5.1.2}main()}{17}{subsubsection.6.5.1.2}% 
+\contentsline {subsubsection}{\numberline {6.5.1.3}matrix\_destroy()}{17}{subsubsection.6.5.1.3}% 
+\contentsline {subsubsection}{\numberline {6.5.1.4}matrix\_init()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [1/2]}}{17}{subsubsection.6.5.1.4}% 
+\contentsline {subsubsection}{\numberline {6.5.1.5}matrix\_init()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [2/2]}}{17}{subsubsection.6.5.1.5}% 
+\contentsline {section}{\numberline {6.6}Refer\IeC {\^e}ncia do Arquivo src/xml.cpp}{18}{section.6.6}% 
 \contentsline {section}{\numberline {6.7}Refer\IeC {\^e}ncia do Arquivo src/xml.h}{18}{section.6.7}% 
 \contentsline {chapter}{\'Indice Remissivo}{19}{section*.16}% 
